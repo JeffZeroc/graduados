@@ -22,15 +22,14 @@
                 </li>
                     <li><a href="#"><i class="fas fa-regular fa-user"></i>Crear usuario</a></li>
                     <li><a href="#"><i class="fas fa-regular fa-users"></i>Ver lista de usuarios</a></li>
-                    <li><a href="#"><i class="fas fa-solid fa-key"></i>Restablecer password</a></li>
+                    <li><a href="/crearUsuario" ><i class="fas fa-solid fa-key"></i>Restablecer password</a></li>
+                    
                     <li>
                         <a  href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                                 {{ __('Cerrar Sesion') }}
-                                
                         </a>
-
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
@@ -38,7 +37,7 @@
                 </ul> 
         </div>
     </div>
+  
 
-   
 </body>
 </html>

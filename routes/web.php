@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::redirect('/','/crearUsuario');
+
+Route::get('/crearUsuario', function () {
+    return view('crearUsuario');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
