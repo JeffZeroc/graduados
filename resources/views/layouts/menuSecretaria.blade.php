@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title')</title>
+    <title>Menu Secretaria</title>
     <!--ESTILOS AGREGADO-->
     <link href="{{ asset('css/base.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
@@ -37,14 +37,14 @@
 
     <div class="wrapper">
         <div class="sidebar">
-            <h4  ><a href="/home" class='admin-elemento__panel' >ADMINISTRADOR</a></h4>
+            <h4  ><a href="/home" class='admin-elemento__panel' >SECRETARIA</a></h4>
                 <ul>
                 <li>
                     <p id="navbarDropdown" > Usuario: {{ Auth::user()->name }} </p>
                 </li>
-                    <li><a href="/crearUsuario"><i class="fas fa-regular fa-user"></i>Crear usuario</a></li>
-                    <li><a href="/listaUsuarios"><i class="fas fa-regular fa-users"></i>Ver lista de usuarios</a></li>
-                    <li><a href="/restablecerPassword" ><i class="fas fa-solid fa-key"></i>Restablecer password</a></li>
+                    <li><a href="#"><i class="fas fa-regular fa-user"></i>Registrar datos</a></li>
+                    <li><a href="#"><i class="fas fa-regular fa-users"></i>Consultar</a></li>
+                   
                     
                     <li>
                         <a  href="{{ route('logout') }}"
@@ -59,6 +59,6 @@
                 </ul> 
         </div>
     </div>
-    @yield('baseMenu')
+    
 </body>
 </html>

@@ -66,9 +66,9 @@
                 </div>
             @endif
             <div class='contenedor-bienvenido'>
-            <h3>SISTEMA DE CONTROL DE LA INFORMACIÓN DE LOS ESTUDIANTES EN PROCESO DE GRADUACIÓN SEDE SANTO DOMINGO. </h3>
-            <img src="{{URL::asset('img/bienvenidos.jpg')}}" alt='img-Bienvenidos'  class='imgSombra'>
-        </div>
+                <h3>SISTEMA DE CONTROL DE LA INFORMACIÓN DE LOS ESTUDIANTES EN PROCESO DE GRADUACIÓN SEDE SANTO DOMINGO. </h3>
+                <img src="{{URL::asset('img/bienvenidos.jpg')}}" alt='img-Bienvenidos'  class='imgSombra'>
+            </div>
         </div>
         
     </body>

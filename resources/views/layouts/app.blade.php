@@ -21,9 +21,9 @@
 </head>
 <body>
     <div id="app">
+        
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                
+            <div class="container">  
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                     <h1>hola mundo5</h1>
@@ -36,7 +36,6 @@
                     <ul class="navbar-nav me-auto">
                     </ul>
                     <!-- MENU VERTICAL -->
-                    
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
@@ -74,13 +73,13 @@
                             </li>
                         @endguest
                     </ul>  
-                        
                 </div>
             </div>
         </nav>
-
+            
         <main>
             @yield('content')
+           
         </main>
     </div>
 </body>
