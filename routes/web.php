@@ -14,13 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-<<<<<<< HEAD
 
 Route::get('crearUsuario', function () {
-=======
-/********  Vistas del panel de ADMINISTRADOR  ****************/
-Route::get('/crearUsuario', function () {
->>>>>>> main
     return view('crearUsuario');
 });
 Route::get('listaUsuarios', function () {
