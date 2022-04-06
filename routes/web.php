@@ -14,8 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< HEAD
 
 Route::get('crearUsuario', function () {
+=======
+/********  Vistas del panel de ADMINISTRADOR  ****************/
+Route::get('/crearUsuario', function () {
+>>>>>>> main
     return view('crearUsuario');
 });
 Route::get('listaUsuarios', function () {
@@ -34,8 +39,12 @@ Route::redirect('/','/restablecerPassword');
 Route::view('/restablecerPassword', 'restablecerPassword')->name('restablecerPassword'); */
 
 /********  Vistas del panel de SECRETARIA ****************/
-Route::redirect('/','/menuSecretaria');
-Route::view('/menuSecretaria', 'menuSecretaria')->name('menuSecretaria');
+Route::redirect('/','/registroDatos');
+Route::view('/registroDatos', 'registroDatos')->name('registroDatos');
+
+Route::redirect('/','/tableDataSecretaria');
+Route::view('/tableDataSecretaria', 'tableDataSecretaria')->name('tableDataSecretaria');
+
 
 
 Route::get('/', function () {
