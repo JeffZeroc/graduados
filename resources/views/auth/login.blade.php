@@ -19,7 +19,7 @@
                                 <select class="form-select  mb-3" >
                                 <option value="secretaria">Secretaria</option>
                                 <option value="administrador">Administrador</option>
-                            <div>
+                            </div>
                         </select>
                         </div>
 

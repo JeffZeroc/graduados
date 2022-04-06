@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,18 +15,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/crearUsuario', function () {
+Route::get('crearUsuario', function () {
     return view('crearUsuario');
 });
-
-Route::redirect('/','/crearUsuario');
+Route::get('listaUsuarios', function () {
+    return view('listaUsuarios');
+});
+Route::get('restablecerPassword', function () {
+    return view('restablecerPassword');
+});
+/* Route::redirect('/','/crearUsuario');
 Route::view('/crearUsuarios', 'crearUsuarios')->name('crearUsuarios');
 
 Route::redirect('/','/listaUsuario');
 Route::view('/listaUsuarios', 'listaUsuarios')->name('listaUsuarios');
 
 Route::redirect('/','/restablecerPassword');
-Route::view('/restablecerPassword', 'restablecerPassword')->name('restablecerPassword');
+Route::view('/restablecerPassword', 'restablecerPassword')->name('restablecerPassword'); */
 
 /********  Vistas del panel de SECRETARIA ****************/
 Route::redirect('/','/menuSecretaria');
