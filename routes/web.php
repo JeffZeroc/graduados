@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdministradorController;
+use App\Http\Controllers\SecretariaController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -40,7 +42,8 @@ Route::view('/registroDatos', 'registroDatos')->name('registroDatos');
 Route::redirect('/','/tableDataSecretaria');
 Route::view('/tableDataSecretaria', 'tableDataSecretaria')->name('tableDataSecretaria');
 
-
+route::resource('administrador',AdministradorController::class);
+route::resource('secretaria',SecretariaController::class);
 
 Route::get('/', function () {
     return view('welcome');
