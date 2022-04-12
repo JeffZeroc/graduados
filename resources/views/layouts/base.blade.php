@@ -37,7 +37,7 @@
 
     <div class="wrapper">
         <div class="sidebar">
-            <h4  ><a href="/home" class='admin-elemento__panel' >ADMINISTRADOR</a></h4>
+            <h4  ><a href="home" class='admin-elemento__panel' >ADMINISTRADOR</a></h4>
                 <ul>
                 <li>
                     <p id="navbarDropdown" > Usuario: {{ Auth::user()->name }} </p>

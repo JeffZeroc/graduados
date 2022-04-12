@@ -26,6 +26,20 @@ Route::get('listaUsuarios', function () {
 Route::get('restablecerPassword', function () {
     return view('restablecerPassword');
 });
+Route::get('homeSecretaria', function () {
+    return view('homeSecretaria');
+});
+
+Route::get('registrodatoss', function () {
+    return view('registroDatos');
+});
+Route::get('principal', function () {
+    return view('home');
+});
+Route::get('listagraduados', function () {
+    return view('tableDataSecretaria');
+});
+
 /* Route::redirect('/','/crearUsuario');
 Route::view('/crearUsuarios', 'crearUsuarios')->name('crearUsuarios');
 

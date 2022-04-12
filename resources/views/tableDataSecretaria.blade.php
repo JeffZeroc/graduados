@@ -5,7 +5,8 @@
 @section('menuSecretaria')
 
     <!--Ejemplo tabla con DataTables-->
-    <div class="container">
+    
+    <div class="container container2">
                     <div class="row">
                             <div class="col-lg-12">
                                 <div class="table-responsive">        
@@ -103,6 +104,18 @@
                                         <tr>
                                             <td>23555412368</td>
                                             <td>Guido</td>
+                                            <td>cedeno</td>
+                                            <td>tecnologias de la informacion</td>
+                                            <td>2017</td>
+                                            <td>2022</td>
+                                            <td>Graduado</td>
+                                            <td>
+                                                <button type="button" class="btn btn-success"><a href="#">Editar</a></button>
+                                            </td>
+                                        </tr>       
+                                        <tr>
+                                            <td>23555412368</td>
+                                            <td>Guido2</td>
                                             <td>cedeno</td>
                                             <td>tecnologias de la informacion</td>
                                             <td>2017</td>

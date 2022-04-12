@@ -26,8 +26,8 @@ class HomeController extends Controller
         $tipo = auth()->user()->rol;
         if ( $tipo == 'secretaria' ) {
             return Redirect("homeSecretaria")->with('mesaje','Secretaria');
-        }else {
-            return Redirect('homeSecretaria')->with('mesaje','Administrador');
+        }elseif( $tipo == 'administrador' ){
+                return Redirect('principal')->with('mesaje','Administrador');
         }
     }
 

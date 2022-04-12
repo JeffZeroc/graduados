@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layouts.menuSecretaria')
 
 @section('title', 'Home Secretaria')
 

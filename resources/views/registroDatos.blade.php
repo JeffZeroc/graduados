@@ -3,21 +3,10 @@
 @section('title', 'Registro Datos') 
 
 @section('menuSecretaria')
-    <div class="wrapper">
-        <div class="sidebar">
-            <img src="../img/graduados.png" alt="">
-            <h2>SECRETARIA</h2>
-            <ul>
-                <div class="userName">
-                    <li><p>USUARIO: Ingresadoo</p></li>
-                </div>
-                <li><a href="registroDatos.html"><i class="fas fa-solid fa-address-card"></i>Registrar graduado</a></li>
-                <li><a href="menuSecretaria.html"><i class="fas fa-search"></i>Consular</a></li>
-                <li><a href="#">Cerrar sesion</a></li>
-            </ul>
-        </div>
+    
+       
         <div class="main_content">
-            <div class="header">SISTEMA DE CONTROL DE INFORMACION A GRADUADOS</div>
+            
 
             <div class="table-filtrar">
                 <!--****************************************-->
@@ -142,5 +131,5 @@
                 <!--*****************************************-->
             </div>
         </div>
-    </div>
+    
 @endsection
