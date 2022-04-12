@@ -23,6 +23,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $tipo = auth()->user()->rol;
+        if ( $tipo == 'secretaria' ) {
+            return Redirect("homeSecretaria")->with('mesaje','Secretaria');
+        }else {
+            return Redirect('homeSecretaria')->with('mesaje','Administrador');
+        }
     }
+
+
 }
