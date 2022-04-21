@@ -33,22 +33,43 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    
+                                    {{-- @foreach ( $UsuariosAdmin as $admins)
                                     <tr>
-                                        <td>Steven</td>
+                                        <td>{{ $admins->name }}</td>
                                         <td>steven@gmail.com</td>
                                         <td>administrador</td>
                                         <td>
                                         <button type="button" class="btn btn-danger">Eliminar</button>
                                         </td>
-                                    </tr>
+                                    </tr>                                       
+                                    @endforeach --}}
+                                    
+
+                                    @foreach ( $UsuariosAdmin as $admins)
                                     <tr>
-                                        <td>maria</td>
-                                        <td>maria@gmail.com</td>
-                                        <td>secretaria</td>
+                                        <td>{{ $admins->name }}</td>
+                                        <td>{{ $admins->email }}</td>
+                                        <td>{{ $admins->rol }}</td>
                                         <td>
-                                        <button type="button" class="btn btn-danger">Eliminar</button>
+                                        <div class="col-md-9 d-flex align-items-center">
+                                            <a href="{{ route('usuario-show', ['id' => $admins->id]) }}" @if ( Auth::user()->id == $admins->id)
+                                                style="pointer-events: none; 
+                                                cursor: default;opacity: .6;" 
+                                                @endif  class="btn btn-success me-3">Modificar</a>
+                                            
+                                            <form action="{{ url('/listaUsuarios/'.$admins->id) }}" class="d-inline" method="post">
+                                                @csrf
+                                                {{ method_field('DELETE') }}
+                                                <input type="submit" @if ( Auth::user()->id == $admins->id)
+                                                disabled  
+                                                @endif onclick="return confirm('Quieres borrar?')" class="btn btn-danger" value="Borrar">
+                                            </form>
+                                        </div>
                                         </td>
-                                    </tr>
+                                    </tr>                                       
+                                    @endforeach
+                                </div>
                                 </tbody>
                             </table>
                         </div>

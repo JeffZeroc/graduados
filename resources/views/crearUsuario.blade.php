@@ -28,18 +28,9 @@
                         <div class="card-header">{{ __('Crear usuario') }}</div>
 
                         <div class="card-body">
-                            <form >
-                            
-                                <div class="row mb-3">
-                                    <label for="text" class="col-md-4 col-form-label text-md-end">{{ __('Selecciona tu perfil') }}</label>
-                                    <div class="col-md-6">
-                                        <select class="form-select  mb-3" >
-                                        <option value="secretaria">Secretaria</option>
-                                        <option value="administrador">Administrador</option>
-                                    <div>
-                                </select>
-                                </div>
-                                
+                            <form method="POST" action="{{ url('crearUsuario') }}" >
+                            @csrf
+                            {{ isset($id)?$id:'' }}
                                 <div class="row mb-3">
                                     <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
@@ -90,10 +81,20 @@
                                     </div>
                                 </div>
 
+                                <div class="row mb-3">
+                                    <label for="text" class="col-md-4 col-form-label text-md-end">{{ __('Selecciona tu perfil') }}</label>
+                                    <div class="col-md-6">
+                                        <select class="form-select  mb-3" name="rol">
+                                        <option value="secretaria">Secretaria</option>
+                                        <option value="administrador">Administrador</option>
+                                    <div>
+                                </select>
+                                </div>
+
                                 <div class="row mb-0">
                                     <div class="col-md-6 offset-md-4">
                                         <button type="submit" class="btn btn-primary">
-                                            {{ __('Register') }}
+                                            {{ __('Registrar') }}
                                         </button>
                                     </div>
                                 </div>

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdministradorController extends Controller
 {
@@ -14,7 +16,9 @@ class AdministradorController extends Controller
      */
     public function index()
     {
-        //
+        $datos['UsuariosAdmin'] = User::paginate(10);
+        return view('listaUsuarios',$datos);  
+        
     }
 
     /**
@@ -24,7 +28,7 @@ class AdministradorController extends Controller
      */
     public function create()
     {
-        //
+        return view('empleados.home');
     }
 
     /**
@@ -46,7 +50,8 @@ class AdministradorController extends Controller
      */
     public function show($id)
     {
-        //
+        $UsuariosAdmin = User::find($id);
+        return view('listaUsuariosSHOW', ['UsuariosAdmin' => $UsuariosAdmin]); 
     }
 
     /**
@@ -69,7 +74,22 @@ class AdministradorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'rol' => ['required', 'string']
+        ]);
+
+        $usuario = User::find($id);
+        
+        $usuario->name = $request->name;
+        $usuario->email = $request->email;
+        $usuario->rol = $request->rol;
+        $usuario->save();
+        $datos['UsuariosAdmin'] = User::paginate(10);
+       /*  return view('listaUsuarios',$datos);   */
+        return redirect()->route('inicio')->with('success', 'Todo updated successfully');
+        
     }
 
     /**
@@ -80,6 +100,7 @@ class AdministradorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        return Redirect('listaUsuarios');  
     }
 }

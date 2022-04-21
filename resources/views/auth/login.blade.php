@@ -4,7 +4,13 @@
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <div class="text-center">
+            <img src="{{ asset('img/ESCUDETO_UTE-LVT.png') }}" style="    display: inline-block;
+            width: 15%;
+            margin: auto;" alt="">
+            </div>
             <div class="card">
+                
                 <div class="card-header text-center">{{ __('INICIAR SESION') }}
                 <p class="text-center">¡Hola! Bienvenido de vuelta</p>
                 </div>

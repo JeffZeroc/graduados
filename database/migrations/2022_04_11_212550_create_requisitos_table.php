@@ -15,12 +15,13 @@ class CreateRequisitosTable extends Migration
     {
         Schema::create('requisitos', function (Blueprint $table) {
             $table->id();
-            $table->boolean('Culrura_Fisica');
-            $table->boolean('Ingles');
+            $table->string('nombreRequisito');
+            $table->boolean('valorRequisito')->nullable();
+            /* $table->boolean('Ingles');
             $table->boolean('Computacion');
             $table->boolean('Certificado_matricula');
             $table->boolean('Titulo_bachiller');
-            $table->boolean('Documentos_personales');
+            $table->boolean('Documentos_personales'); */
             $table->timestamps();
         });
     }

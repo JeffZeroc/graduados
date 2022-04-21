@@ -15,7 +15,8 @@ class PeriodoController extends Controller
      */
     public function index()
     {
-        //
+        $datos['periodos'] = Periodo::paginate(10);
+        return view('periodoAcademico',$datos); 
     }
 
     /**
@@ -36,8 +37,21 @@ class PeriodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'Inicio_Periodo' => ['required', 'date'],
+            'Fin_Periodo' => ['required', 'date'],
+            'Nombre_Periodo' => ['required', 'string', 'max:255']
+        ]);
+        
+        $todo = new Periodo;
+        $todo->Inicio_Periodo = $request->Inicio_Periodo;
+        $todo->Fin_Periodo = $request->Fin_Periodo;
+        $todo->Nombre_Periodo = $request->Nombre_Periodo;
+        $todo->save();
+    
+        return redirect()->route('periodo')->with('success', 'Se ha guardado correctamente');
     }
+    
 
     /**
      * Display the specified resource.
@@ -45,9 +59,10 @@ class PeriodoController extends Controller
      * @param  \App\Models\Periodo  $periodo
      * @return \Illuminate\Http\Response
      */
-    public function show(Periodo $periodo)
+    public function show($id)
     {
-        //
+        $periodos = Periodo::find($id);
+        return view('periodoAcademicoShow', ['periodos' => $periodos]); 
     }
 
     /**
@@ -68,10 +83,23 @@ class PeriodoController extends Controller
      * @param  \App\Models\Periodo  $periodo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Periodo $periodo)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'Inicio_Periodo' => ['required', 'date'],
+            'Fin_Periodo' => ['required', 'date'],
+            'Nombre_Periodo' => ['required', 'string', 'max:255']
+        ]);
+        
+        $todo = Periodo::find($id);
+        $todo->Inicio_Periodo = $request->Inicio_Periodo;
+        $todo->Fin_Periodo = $request->Fin_Periodo;
+        $todo->Nombre_Periodo = $request->Nombre_Periodo;
+        $todo->save();
+
+        return redirect()->route('periodo')->with('success', 'Todo updated successfully');
     }
+    
 
     /**
      * Remove the specified resource from storage.
@@ -79,8 +107,9 @@ class PeriodoController extends Controller
      * @param  \App\Models\Periodo  $periodo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Periodo $periodo)
+    public function destroy($id)
     {
-        //
+        Periodo::destroy($id);
+        return Redirect('periodoAcademico'); 
     }
 }

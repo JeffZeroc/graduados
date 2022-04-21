@@ -27,9 +27,9 @@ class CreateEstudiantesTable extends Migration
             $table->bigInteger('periodo_id')->unsigned();
             $table->bigInteger('carrera_id')->unsigned();
             $table->bigInteger('requisitos_id')->unsigned();
-            $table->foreign('periodo_id')->references('id')->on('periodos')->onDelete('cascade');
-            $table->foreign('carrera_id')->references('id')->on('carreras')->onDelete('cascade');
-            $table->foreign('requisitos_id')->references('id')->on('requisitos')->onDelete('cascade');
+            $table->foreign('periodo_id')->references('id')->on('periodos')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('carrera_id')->references('id')->on('carreras')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('requisitos_id')->references('id')->on('requisitos')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

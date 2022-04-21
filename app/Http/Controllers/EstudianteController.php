@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Estudiante;
 use App\Http\Controllers\Controller;
+use App\Models\Requisitos;
 use Illuminate\Http\Request;
 
 class EstudianteController extends Controller
@@ -15,7 +16,9 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        //
+        $requisitos1 = Requisitos::all();
+        $requisitos = Requisitos::with('Estudiantes')->get();
+        return view('registroDatos' , compact('requisitos'),['requisitos1' => $requisitos1]); 
     }
 
     /**

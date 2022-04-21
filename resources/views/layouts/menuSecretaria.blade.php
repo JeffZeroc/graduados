@@ -35,8 +35,7 @@
                     <li><p>USUARIO: {{ Auth::user()->name }}</p></li>
                 </div>
             
-
-                <li><a href="registrodatoss"><i class="fas fa-solid fa-address-card"></i>Registrar graduado</a></li>
+                <li><a href="{{ route('registrodatos') }}"><i class="fas fa-solid fa-address-card"></i>Registrar graduado</a></li>
                 <li><a href="listagraduados"><i class="fas fa-search"></i>Consular</a></li>
                 <li>
                     <a  href="{{ route('logout') }}"

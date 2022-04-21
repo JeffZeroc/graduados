@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Carrera;
 
 class Facultad extends Model
 {
     use HasFactory;
 
-    public function Carreras()
+    public function carreras()
     {
         return $this->hasMany(Carrera::class);
     }

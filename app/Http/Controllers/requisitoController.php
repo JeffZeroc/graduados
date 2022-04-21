@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Facultad;
 use App\Http\Controllers\Controller;
+use App\Models\Requisitos;
 use Illuminate\Http\Request;
 
-class FacultadController extends Controller
+class requisitoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,8 @@ class FacultadController extends Controller
      */
     public function index()
     {
-        $facultades = Facultad::all();
-        return view('facultad',['facultades' => $facultades]);
-       /*  return view('requisitosUsuarios');  */
+        $datos = Requisitos::all();
+        return view('requisitosUsuarios',['datos' => $datos]); 
     }
 
     /**
@@ -39,35 +38,34 @@ class FacultadController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'Nombre_Facultad' => ['required', 'string', 'max:255']
+            'nombreRequisito' => ['required', 'string', 'max:255'],
         ]);
-        
-        $todo = new Facultad;
-        $todo->Nombre_Facultad = $request->Nombre_Facultad;
+        $todo = new Requisitos;
+        $todo->nombreRequisito = $request->nombreRequisito;
         $todo->save();
     
-        return redirect()->route('facultad')->with('success', 'Se ha guardado correctamente');
+        return redirect()->route('requisitos')->with('success', 'Se ha guardado correctamente');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Facultad  $facultad
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $facultades = Facultad::find($id);
-        return view('facultadShow', ['facultades' => $facultades]); 
+        $Requerimientos = Requisitos::find($id);
+        return view('requisitosUsuariosSHOW', ['Requerimientos' => $Requerimientos]); 
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Facultad  $facultad
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Facultad $facultad)
+    public function edit($id)
     {
         //
     }
@@ -76,30 +74,31 @@ class FacultadController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Facultad  $facultad
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'Nombre_Facultad' => ['required', 'string', 'max:255']
+            'nombreRequisito' => ['required', 'string', 'max:255'],
         ]);
-        $todo = Facultad::find($id);
-        $todo->Nombre_Facultad = $request->Nombre_Facultad;
-        $todo->save();
+        $requisito = Requisitos::find($id);
+        $requisito->nombreRequisito = $request->nombreRequisito;
+        $requisito->save();
        
-        return redirect()->route('facultad')->with('success', 'Todo updated successfully');
+       /*  return view('listaUsuarios',$datos);   */
+        return redirect()->route('requisitos')->with('success', 'Todo updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Facultad  $facultad
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        Facultad::destroy($id);
-        return Redirect('facultad'); 
+        Requisitos::destroy($id);
+        return Redirect('requisitosUsuarios'); 
     }
 }
