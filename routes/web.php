@@ -63,37 +63,61 @@ Route::view('/registroDatos', 'registroDatos')->name('registroDatos');
 
 Route::redirect('/','/tableDataSecretaria');
 Route::view('/tableDataSecretaria', 'tableDataSecretaria')->name('tableDataSecretaria');
+Route::group(['middleware'=>'auth'], function(){
+    
+    route::get('listaUsuarios',[App\Http\Controllers\AdministradorController::class,'index'])->name('inicio');
+    route::delete('listaUsuarios/{id}',[App\Http\Controllers\AdministradorController::class,'destroy']);
+    route::resource('secretaria',SecretariaController::class);
+    route::get('listaUsuarios/{id}',[App\Http\Controllers\AdministradorController::class,'show'])->name('usuario-show');
+    route::patch('listaUsuariosSHOW/{id}',[App\Http\Controllers\AdministradorController::class,'update'])->name('usuario-save');
 
-route::get('listaUsuarios',[App\Http\Controllers\AdministradorController::class,'index'])->name('inicio');
-route::delete('listaUsuarios/{id}',[App\Http\Controllers\AdministradorController::class,'destroy']);
-route::resource('secretaria',SecretariaController::class);
-route::get('listaUsuarios/{id}',[App\Http\Controllers\AdministradorController::class,'show'])->name('usuario-show');
-route::patch('listaUsuariosSHOW/{id}',[App\Http\Controllers\AdministradorController::class,'update'])->name('usuario-save');
+});
 
-route::get('requisitosUsuarios',[App\Http\Controllers\requisitoController::class,'index'])->name('requisitos');
-route::post('requisitosUsuarios',[App\Http\Controllers\requisitoController::class,'store'])->name('requisitos_save');
-route::delete('requisitosUsuarios/{id}',[App\Http\Controllers\requisitoController::class,'destroy'])->name('requerimientos-delete');
-route::get('requisitosUsuarios/{id}',[App\Http\Controllers\requisitoController::class,'show'])->name('requerimientos-show');
-route::patch('requisitosUsuariosShow/{id}',[App\Http\Controllers\requisitoController::class,'update'])->name('requerimientos-update');
+Route::group(['middleware'=>'auth'], function(){
+    
+    route::get('requisitosUsuarios',[App\Http\Controllers\requisitoController::class,'index'])->name('requisitos');
+    route::post('requisitosUsuarios',[App\Http\Controllers\requisitoController::class,'store'])->name('requisitos_save');
+    route::delete('requisitosUsuarios/{id}',[App\Http\Controllers\requisitoController::class,'destroy'])->name('requerimientos-delete');
+    route::get('requisitosUsuarios/{id}',[App\Http\Controllers\requisitoController::class,'show'])->name('requerimientos-show');
+    route::patch('requisitosUsuariosShow/{id}',[App\Http\Controllers\requisitoController::class,'update'])->name('requerimientos-update');
 
-route::get('periodoAcademico',[App\Http\Controllers\PeriodoController::class,'index'])->name('periodo');
-route::post('periodoAcademico',[App\Http\Controllers\PeriodoController::class,'store'])->name('periodo_save');
-route::delete('periodoAcademico/{id}',[App\Http\Controllers\PeriodoController::class,'destroy'])->name('periodo-delete');
-route::get('periodoAcademico/{id}',[App\Http\Controllers\PeriodoController::class,'show'])->name('periodo-show');
-route::patch('periodoAcademico/{id}',[App\Http\Controllers\PeriodoController::class,'update'])->name('periodo_update');
+});
 
-route::get('facultad',[App\Http\Controllers\FacultadController::class,'index'])->name('facultad');
-route::post('facultad',[App\Http\Controllers\FacultadController::class,'store'])->name('facultad_save');
-route::delete('facultad/{id}',[App\Http\Controllers\FacultadController::class,'destroy'])->name('facultad-delete');
-route::get('facultad/{id}',[App\Http\Controllers\FacultadController::class,'show'])->name('facultad-show');
-route::patch('facultad/{id}',[App\Http\Controllers\FacultadController::class,'update'])->name('facultad_update');
+Route::group(['middleware'=>'auth'], function(){
+    
+    route::get('periodoAcademico',[App\Http\Controllers\PeriodoController::class,'index'])->name('periodo');
+    route::post('periodoAcademico',[App\Http\Controllers\PeriodoController::class,'store'])->name('periodo_save');
+    route::delete('periodoAcademico/{id}',[App\Http\Controllers\PeriodoController::class,'destroy'])->name('periodo-delete');
+    route::get('periodoAcademico/{id}',[App\Http\Controllers\PeriodoController::class,'show'])->name('periodo-show');
+    route::patch('periodoAcademico/{id}',[App\Http\Controllers\PeriodoController::class,'update'])->name('periodo_update');
 
-route::get('carrera',[App\Http\Controllers\CarreraController::class,'index'])->name('carrera');
-route::post('carrera',[App\Http\Controllers\CarreraController::class,'store'])->name('carrera_save');
-route::get('carrera/{id}',[App\Http\Controllers\CarreraController::class,'show'])->name('carrera-show');
-route::patch('carrera/{id}',[App\Http\Controllers\CarreraController::class,'update'])->name('carrera_update');
+});
 
-route::get('registroDatos',[App\Http\Controllers\EstudianteController::class,'index'])->name('registrodatos');
+Route::group(['middleware'=>'auth'], function(){
+    
+    route::get('facultad',[App\Http\Controllers\FacultadController::class,'index'])->name('facultad');
+    route::post('facultad',[App\Http\Controllers\FacultadController::class,'store'])->name('facultad_save');
+    route::delete('facultad/{id}',[App\Http\Controllers\FacultadController::class,'destroy'])->name('facultad-delete');
+    route::get('facultad/{id}',[App\Http\Controllers\FacultadController::class,'show'])->name('facultad-show');
+    route::patch('facultad/{id}',[App\Http\Controllers\FacultadController::class,'update'])->name('facultad_update');
+
+});
+
+Route::group(['middleware'=>'auth'], function(){
+    
+    route::get('carrera',[App\Http\Controllers\CarreraController::class,'index'])->name('carrera');
+    route::post('carrera',[App\Http\Controllers\CarreraController::class,'store'])->name('carrera_save');
+    route::get('carrera/{id}',[App\Http\Controllers\CarreraController::class,'show'])->name('carrera-show');
+    route::patch('carrera/{id}',[App\Http\Controllers\CarreraController::class,'update'])->name('carrera_update');
+
+});
+
+Route::group(['middleware'=>'auth'], function(){
+    
+    route::get('registroDatos',[App\Http\Controllers\EstudianteController::class,'index'])->name('registrodatos');
+    route::post('registroDatos',[App\Http\Controllers\EstudianteController::class,'store'])->name('registrodatosUsuario_save');
+
+});
 
 
 route::post('crearUsuario',[RegisterController::class,'register']);/* ESTÁ EN UN VEREMOS  */
