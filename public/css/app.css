@@ -1182,7 +1182,7 @@ progress {
 
   .col-md-8 {
     flex: 0 0 auto;
-    width: 66.66666667%;
+    width: 60.66666667%;
   }
 
   .col-md-9 {
@@ -4509,7 +4509,7 @@ textarea.form-control-lg {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: #ffffff71;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
@@ -11290,4 +11290,8 @@ textarea.form-control-lg {
 /***************  ESTILOS PERSONALIZADOS  ************************/
 .table-elemento__spacing{
   padding: 30px;
+}
+
+.efecto-login{
+  
 }

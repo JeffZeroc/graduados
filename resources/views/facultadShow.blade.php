@@ -28,7 +28,7 @@
                     @csrf
                     @method('PATCH')
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">Nombre de la facultad</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end">Nombre</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control"  name="Nombre_Facultad" value="{{ $facultades->Nombre_Facultad }}" autofocus>
@@ -37,7 +37,7 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Enviar
+                                    Actualizar
                                 </button>
                             </div>
                         </div>

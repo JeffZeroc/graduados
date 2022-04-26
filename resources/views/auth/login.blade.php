@@ -1,18 +1,34 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="text-center">
-            <img src="{{ asset('img/ESCUDETO_UTE-LVT.png') }}" style="    display: inline-block;
-            width: 15%;
-            margin: auto;" alt="">
-            </div>
-            <div class="card">
-                
-                <div class="card-header text-center">{{ __('INICIAR SESION') }}
-                <p class="text-center">¡Hola! Bienvenido de vuelta</p>
+            <div class="card efecto_Sonbra efecto-login ">
+                <style>
+                    .efecto_Sonbra{
+                        -webkit-box-shadow: 4px 12px 19px 6px rgba(0,0,0,0.75);
+                        -moz-box-shadow: 4px 12px 19px 6px rgba(0,0,0,0.75);
+                        box-shadow: 4px 12px 19px 6px rgba(0,0,0,0.75);
+                    }
+
+                    body{
+                        background-repeat: no-repeat;
+                        background-attachment: fixed;
+                        background-size: cover;
+                        background-image: url({{url('img/utelvt_Concordia.png')}}); 
+                    }
+
+                </style>
+
+                <div class="card-header text-center ">
+                    <img src="{{ asset('img/ESCUDETO_UTE-LVT.png') }}" 
+                        style=" display: inline-block;
+                                width: 15%;
+                                margin: auto;" alt="img-utelvt"
+                    >
+                    <br>
+                    <b>{{ __('INICIAR SESION') }} </b>
+                    <p class="text-center">¡Hola! Bienvenido de vuelta</p>
                 </div>
 
                 <div class="card-body">

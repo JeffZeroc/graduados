@@ -34,7 +34,7 @@
                                             <td>2022</td>
                                             <td>egresado</td>
                                             <td>
-                                                <button type="button" class="btn btn-success"><a href="#">Editar</a></button>
+                                                <button type="button" class="btn btn-success  btn-Accion"><a href="#">Editar</a></button>
                                             </td>
                                         </tr>                
                                         <tr>
@@ -46,7 +46,7 @@
                                             <td>2022</td>
                                             <td>Graduado</td>
                                             <td>
-                                                <button type="button" class="btn btn-success"><a href="#">Editar</a></button>
+                                                <button type="button" class="btn btn-success  btn-Accion "><a href="#">Editar</a></button>
                                             </td>
                                         </tr> 
                                        
@@ -59,7 +59,7 @@
                                             <td>2022</td>
                                             <td>Graduado</td>
                                             <td>
-                                                <button type="button" class="btn btn-success"><a href="#">Editar</a></button>
+                                                <button type="button" class="btn btn-success btn-Accion "><a href="#">Editar</a></button>
                                             </td>
                                         </tr>  
                                       
@@ -73,7 +73,7 @@
                                             <td>2024</td>
                                             <td>Graduado</td>
                                             <td>
-                                                <button type="button" class="btn btn-success"><a href="#">Editar</a></button>
+                                                <button type="button" class="btn btn-success  btn-Accion"><a href="#">Editar</a></button>
                                             </td>
                                         </tr>  
                                       
@@ -86,7 +86,7 @@
                                             <td>2022</td>
                                             <td>egresado</td>
                                             <td>
-                                                <button type="button" class="btn btn-success"><a href="#">Editar</a></button>
+                                                <button type="button" class="btn btn-success  btn-Accion"><a href="#">Editar</a></button>
                                             </td>
                                         </tr>  
                                         <tr>
@@ -98,7 +98,7 @@
                                             <td>2022</td>
                                             <td>Graduado</td>
                                             <td>
-                                                <button type="button" class="btn btn-success"><a href="#">Editar</a></button>
+                                                <button type="button" class="btn btn-success  btn-Accion"><a href="#">Editar</a></button>
                                             </td>
                                         </tr>  
                                         <tr>
@@ -110,7 +110,7 @@
                                             <td>2022</td>
                                             <td>Graduado</td>
                                             <td>
-                                                <button type="button" class="btn btn-success"><a href="#">Editar</a></button>
+                                                <button type="button" class="btn btn-success  btn-Accion"><a href="#">Editar</a></button>
                                             </td>
                                         </tr>       
                                         <tr>
@@ -122,7 +122,7 @@
                                             <td>2022</td>
                                             <td>Graduado</td>
                                             <td>
-                                                <button type="button" class="btn btn-success"><a href="#">Editar</a></button>
+                                                <button type="button" class="btn btn-success  btn-Accion"><a href="#">Editar</a></button>
                                             </td>
                                         </tr>                          
                                     </tbody>        

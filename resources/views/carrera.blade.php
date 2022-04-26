@@ -1,9 +1,5 @@
 @extends('layouts.base')
-
-
 @section('title', 'Lista de Usuarios') 
-
-
 @section('baseMenu')
     
 
@@ -35,7 +31,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="name2" class="col-md-4 col-form-label text-md-end">Nombre de la Carrera</label>
+                            <label for="name2" class="col-md-4 col-form-label text-md-end">Nombre</label>
 
                             <div class="col-md-6">
                                 <input id="name2" placeholder="Sistemas" type="text" class="form-control"  name="Nombre_Carrera" value="{{ old('Nombre_Carrera') }}" >
@@ -49,14 +45,14 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="name4" class="col-md-4 col-form-label text-md-end">Duración de la Carrera</label>
+                            <label for="name4" class="col-md-4 col-form-label text-md-end">Duración</label>
 
                             <div class="col-md-6">
                                 <input id="name4" placeholder="9" type="number" class="form-control"  name="Duracion_Carrera" value="{{ old('Duracion_Carrera') }}" >
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="name5" class="col-md-4 col-form-label text-md-end">Estado de la Carrera</label>
+                            <label for="name5" class="col-md-4 col-form-label text-md-end">Estado</label>
 
                             <div class="col-md-6">
                                 <input id="name5" placeholder="Habilitado" type="text" class="form-control"  name="Estado_Carrera" value="{{ old('Estado_Carrera') }}" >
@@ -75,66 +71,63 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Enviar
+                                    Crear nueva carrera
                                 </button>
                             </div>
                         </div>
                     </form>
                 </div>
-
-               
-                    
-                <div class="card ">
-                    <div class="card-header">Lista de las carreras</div>
-                    <div class='table-elemento__spacing' >
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Codigo ejecutar</th>
-                                    <th scope="col">Carrera</th>
-                                    <th scope="col">Código</th>
-                                    <th scope="col">Duración</th>
-                                    <th scope="col">Estado</th>
-                                    <th scope="col">Facultad</th>
-                                    <th scope="col">Acción</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{-- @foreach ($carreras->facultade as $carrerae )
-                                {{ $carrerae->Nombre_Facultad }}
-                                @endforeach --}}
-
-
-
-                               
-
-                                @foreach ( $usuarios as $facultad)
-                                @foreach ($facultad->carreras as $carrera)
-                                <tr>
-                                    <td>{{ $carrera->CODIGO_EJECUTAR }}</td>
-                                    <td>{{ $carrera->Nombre_Carrera }}</td>
-                                    <td>{{ $carrera->Codigo_Carrera }}</td>
-                                    <td>{{ $carrera->Duracion_Carrera }}</td>
-                                    <td>{{ $carrera->Estado_Carrera }}</td>
-                                  
-                                    <td>{{ $facultad->Nombre_Facultad  }}</td>
-                                    <td>
-                                    <div class="col-md-9 d-flex align-items-center">
-                                        <a href="{{ route('carrera-show', ['id' => $carrera->id]) }}" class="btn btn-success me-3">Modificar</a>
-                                    </div>
-                                    </td>
-                                </tr>     
-                                @endforeach                                  
-                                @endforeach
-                            </div>
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
-
             </div>
         </div>
+    </div>
+
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card contenedor-carrera">
+                        <div class="card-header">Listado de carreras creadas</div>
+                        <div class='table-elemento__spacing' >
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Codigo ejecutar</th>
+                                        <th scope="col">Carrera</th>
+                                        <th scope="col">Código</th>
+                                        <th scope="col">Duración</th>
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Facultad</th>
+                                        <th scope="col">Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{-- @foreach ($carreras->facultade as $carrerae )
+                                    {{ $carrerae->Nombre_Facultad }}
+                                    @endforeach --}}
+
+                                    @foreach ( $usuarios as $facultad)
+                                    @foreach ($facultad->carreras as $carrera)
+                                    <tr>
+                                        <td>{{ $carrera->CODIGO_EJECUTAR }}</td>
+                                        <td>{{ $carrera->Nombre_Carrera }}</td>
+                                        <td>{{ $carrera->Codigo_Carrera }}</td>
+                                        <td>{{ $carrera->Duracion_Carrera }}</td>
+                                        <td>{{ $carrera->Estado_Carrera }}</td>
+                                    
+                                        <td>{{ $facultad->Nombre_Facultad  }}</td>
+                                        <td>
+                                        <div class="col-md-9 d-flex align-items-center">
+                                            <a href="{{ route('carrera-show', ['id' => $carrera->id]) }}" class="btn btn-success me-3">Modificar</a>
+                                        </div>
+                                        </td>
+                                    </tr>     
+                                    @endforeach                                  
+                                    @endforeach
+                                </div>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            </div>
     </div>
 </div> 
   

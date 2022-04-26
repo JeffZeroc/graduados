@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
+    <link rel=" shortcut icon" type="images/png" href="{{asset('img/milogo.png')}}">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     
     <!--TODO: AKI VAN A IR  LOS LINK DE LOS ARCHIVOS PARA EL FUNIONAMIENTO DE LA TABLA. -->
@@ -35,10 +36,10 @@
                     <li><p>USUARIO: {{ Auth::user()->name }}</p></li>
                 </div>
             
-                <li><a href="{{ route('registrodatos') }}"><i class="fas fa-solid fa-address-card"></i>Registrar graduado</a></li>
-                <li><a href="listagraduados"><i class="fas fa-search"></i>Consular</a></li>
+                <li @if(request()->is('registroDatos')) class='active' @endif ><a href="{{ route('registrodatos') }}" class='fas-subrayado' ><i class="fas fa-solid fa-address-card "></i>Registrar graduado</a></li>
+                <li @if(request()->is('listagraduados')) class='active' @endif ><a href="listagraduados" class='fas-subrayado' ><i class="fas fa-search "></i>Consular</a></li>
                 <li>
-                    <a  href="{{ route('logout') }}"
+                    <a class='fas-subrayado' href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                         {{ __('Cerrar Sesion') }}
@@ -51,7 +52,7 @@
             </ul>
         </div>
         <div class="main_content">
-            <div class="header">SISTEMA DE CONTROL DE INFORMACION A GRADUADOS</div>
+            <div class="header">SISTEMA DE CONTROL DE INFORMACION A ESTUDIANTES EN PROCESO DE GRADUACION</div>
 
             <div class="table-filtrar">
 

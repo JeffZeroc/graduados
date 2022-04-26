@@ -1,12 +1,6 @@
 @extends('layouts.base')
-
-
 @section('title', 'Lista de Usuarios') 
-
-
 @section('baseMenu')
-    
-
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -76,7 +70,7 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Enviar
+                                    Actualizar datos 
                                 </button>
                             </div>
                         </div>

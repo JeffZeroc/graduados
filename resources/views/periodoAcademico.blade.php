@@ -1,9 +1,5 @@
 @extends('layouts.base')
-
-
 @section('title', 'Lista de Usuarios') 
-
-
 @section('baseMenu')
     
 
@@ -50,16 +46,18 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Enviar
+                                    Crear periodo
                                 </button>
                             </div>
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
 
-               
-                    
-                <div class="card ">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                    <div class="card contenedor-periodo">
                     <div class="card-header">Lista de los periodos Academicos</div>
                     <div class='table-elemento__spacing' >
                         <table class="table">
@@ -98,7 +96,6 @@
                     </div>
 
                 </div>
-
             </div>
         </div>
     </div>

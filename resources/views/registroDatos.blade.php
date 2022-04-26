@@ -1,10 +1,6 @@
 @extends('layouts.menuSecretaria')
-
 @section('title', 'Registro Datos') 
-
 @section('menuSecretaria')
-    
-       
         <div class="main_content">
             
             @if (count($errors)>0)
