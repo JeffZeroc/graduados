@@ -28,39 +28,40 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ( $periodos as $periodo)
-                                            @foreach ($periodo->Estudiantes as $estudiante)
+                                        
+                                        @foreach ($estudiantes as $re)
                                         <tr>
-                                            <td>{{$estudiante->Cedula_Estudiante}}</td>
-                                            <td>{{$estudiante->Nombre_Estudiante}}</td>
+                                            <td>{{$re->Cedula_Estudiante}}</td>
+                                            <td>{{$re->Nombre_Estudiante}}</td>
                                             {{-- <td>{{$estudiante->Apellido_Estudiante}}</td>                                
                                             <td>{{$estudiante->Telefono_Estudiante}}</td>
                                             <td>{{$estudiante->Nombre_CursoE}}</td>
                                             <td>{{$estudiante->Correo_InstitucionalE}}</td>
                                             <td>{{$estudiante->Correo_PersonalE}}</td>
                                             <td>{{$estudiante->Estado_Estudiante}}</td> --}}
-                                            <td>{{$periodo->Nombre_Periodo }}<br>{{$periodo->Inicio_Periodo }}<br>{{$periodo->Fin_Periodo }}</td>
-                                            <td>{{$estudiante->Carrera->Nombre_Carrera }}</td>
+                                            <td>{{$re->periodo->Nombre_Periodo }}<br>{{$re->periodo->Inicio_Periodo }}<br>{{$re->periodo->Fin_Periodo }}</td>
+                                            <td>{{$re->Carrera->Nombre_Carrera }}</td>
                                            
                                             <td> 
-                                                @foreach ($estudiante->Requisitos as $Requisito)
-                                                <p>{{$Requisito->requisito_id}} 
-                                                
-                                                @if ($Requisito->valorRequisito == 1)
-                                                 Aprobado
-                                                 @else
-                                                 Rechazado
-                                                @endif
-                                                </p>
+                                                @foreach ($estudianteRequisitos as $r)
 
-                                                @endforeach  
+                                                    <p>{{$r->Requisitos1 ->nombreRequisito}}   
+                                                
+                                                    @if ($r->valorRequisito == 1)
+                                                     Aprobado
+                                                     @else
+                                                     Rechazado
+                                                    @endif
+                                                    </p>
+                                                    
+                                                @endforeach
                                             </td>
                                             
                                             <td>
-                                                <button type="button" class="btn btn-success" ><a href="{{ route('registrodatosUsuario-show', ['id' => $estudiante->id]) }}" id="color-editar">Editar</a></button>
+                                                <button type="button" class="btn btn-success" ><a href="{{ route('registrodatosUsuario-show', ['id' => $re->id]) }}" id="color-editar">Editar</a></button>
                                             </td>
                                         </tr>                
-                                            @endforeach                                  
+                                                                            
                                         @endforeach      
                                     </tbody>        
                                 </table>                  

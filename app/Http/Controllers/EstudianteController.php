@@ -31,10 +31,11 @@ class EstudianteController extends Controller
     }
     public function index2()
     {
-        $requisitos2 = Requisitos::all();
-        $periodos = Periodo::with('estudiantes')->get();
+        $estudianteRequisitos = estudianteRequisito::get();
+        $estudiantes = Estudiante::get();
         /* return $requisitos2[0]{'nombreRequisito'}; */
-        return view('tableDataSecretaria' , compact('periodos','requisitos2'));
+        return view('tableDataSecretaria' , compact('estudiantes','estudianteRequisitos'));
+        //return $estudiantes;
     }
 
     /**
@@ -202,28 +203,21 @@ class EstudianteController extends Controller
         $todo->periodo_id = $request->periodo_id;
         $todo->save();
 
-        $idAreaRecienGuardada = $todo->id;
-
-
-        /* $num = 0;
+        $todo2 = estudianteRequisito::all();
         
-        foreach($todo->Requisitos as $estudiante){
-            $todo->$estudiante->valorRequisito =  $request->requisito_id[$num];
-            $todo->save();
-            $num++;
+        $nume = 0;
+        foreach($todo2 as $re){
+            if($re->estudiante_id == $id){
+                foreach ($requisitos as $requisito ) {
+                    if ($re->requisito_id == $requisito->id) {
+                        $re->valorRequisito = $request->requisito_id[$nume];
+                    }
+                }
+                $nume++;
+                $re->save();
+            }
         }
- */
-        $num = 0;
-        $todo2 = DB::table('estudiante_requisitos')->where('estudiante_id', $idAreaRecienGuardada)->get();
-        
-        foreach($todo2 as $todo2s){
-            var_dump($todo2s->valorRequisito);
-            $todo2s->valorRequisito = $request->requisito_id[($todo2s->requisito_id)-1];
-            
-            
-            /* $todo2s->save(); */
-            $num++;
-        }
+        //return $todo2;
         return redirect()->route('registrodatos')->with('success', 'Se ha guardado correctamente');
     }
 

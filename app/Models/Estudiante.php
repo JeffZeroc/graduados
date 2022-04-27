@@ -18,6 +18,11 @@ class Estudiante extends Model
     {
         return $this->belongsTo(Carrera::class);
     }
+    
+    public function estudianteRequisito()
+    {
+        return $this->belongsTo('App\Models\estudianteRequisito', 'estudiante_id', 'id');
+    }
 
 
 

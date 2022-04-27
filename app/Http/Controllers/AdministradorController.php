@@ -39,7 +39,7 @@ class AdministradorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return 'Hola';
     }
 
     /**

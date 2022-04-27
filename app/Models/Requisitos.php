@@ -9,9 +9,9 @@ class Requisitos extends Model
 {
     use HasFactory;
 
-    public function Estudiantes()
+    public function estudianteRequisito()
     {
-        return $this->hasMany(estudianteRequisito::class);
+        return $this->hasMany('App\Models\estudianteRequisito', 'requisito_id', 'id');
     }
     /* public function Estudiantes() 
     {

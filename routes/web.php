@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 route::get('crearUsuario',[App\Http\Controllers\CarreraController::class,'index2'])->name('crearUsuario');
+route::post('crearUsuario',[App\Http\Controllers\AdministradorController::class,'store']);
 route::get('restablecerPassword',[App\Http\Controllers\CarreraController::class,'index3'])->name('restablecercontraAdmin');
 
 /* route::get('tableDataSecretaria',[App\Http\Controllers\CarreraController::class,'index5'])->name('tableDataSecretaria2');
