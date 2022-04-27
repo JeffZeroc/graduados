@@ -74,11 +74,20 @@ class AdministradorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
+        $campos = [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'rol' => ['required', 'string']
-        ]);
+        ];
+
+        $mensaje = [
+            'name.required'=>'El nombre es requerido',
+            'email.required'=>'El correo es requerido',
+        ];
+
+        $this->validate($request,$campos,$mensaje);
+
+       
 
         $usuario = User::find($id);
         
@@ -88,7 +97,7 @@ class AdministradorController extends Controller
         $usuario->save();
         $datos['UsuariosAdmin'] = User::paginate(10);
        /*  return view('listaUsuarios',$datos);   */
-        return redirect()->route('inicio')->with('success', 'Todo updated successfully');
+        return redirect()->route('inicio')->with('success', 'Usuario modificado correctamente');
         
     }
 

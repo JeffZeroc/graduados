@@ -13,12 +13,12 @@
             <div class="card">
                 <div class="card-header">Crear nuevo periodo academico</div>
 
-            @error('Inicio_Periodo')
+                @if (count($errors)>0)
                 <div class="alert alert-danger">@foreach ($errors->all() as $error)
-                                                <li>{{$error}}</li>
-                                                @endforeach
-                </div>
-            @enderror
+                    <li>{{$error}}</li>
+                    @endforeach
+                    </div>
+                @endif
             
             @if (session('success'))
                     <h6 class="alert alert-success">{{ session('success') }}</h6>
@@ -51,7 +51,7 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Actualizar Periodo
+                                    Modificar
                                 </button>
                             </div>
                         </div>

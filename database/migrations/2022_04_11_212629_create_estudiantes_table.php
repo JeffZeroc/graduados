@@ -19,17 +19,14 @@ class CreateEstudiantesTable extends Migration
             $table->string('Nombre_Estudiante');
             $table->string('Apellido_Estudiante');
             $table->string('Telefono_Estudiante');
-            $table->string('Carrera_Estudiante');
             $table->string('Nombre_CursoE');
             $table->string('Correo_InstitucionalE');
             $table->string('Correo_PersonalE');
             $table->string('Estado_Estudiante');
             $table->bigInteger('periodo_id')->unsigned();
             $table->bigInteger('carrera_id')->unsigned();
-            $table->bigInteger('requisitos_id')->unsigned();
             $table->foreign('periodo_id')->references('id')->on('periodos')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('carrera_id')->references('id')->on('carreras')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('requisitos_id')->references('id')->on('requisitos')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

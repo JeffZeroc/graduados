@@ -11,6 +11,10 @@ class Requisitos extends Model
 
     public function Estudiantes()
     {
-        return $this->hasMany(Estudiante::class);
+        return $this->hasMany(estudianteRequisito::class);
     }
+    /* public function Estudiantes() 
+    {
+        return $this->belongsToMany(Estudiante::class,'estudiante_requisito','requisito_id','estudiante_id');
+    } */
 }

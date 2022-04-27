@@ -38,10 +38,17 @@ class FacultadController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+
+        $campos = [
             'Nombre_Facultad' => ['required', 'string', 'max:255']
-        ]);
-        
+        ];
+
+        $mensaje = [
+            'Nombre_Facultad.required'=>'El nombre es requerido'
+        ];
+
+        $this->validate($request,$campos,$mensaje);
+
         $todo = new Facultad;
         $todo->Nombre_Facultad = $request->Nombre_Facultad;
         $todo->save();
@@ -81,14 +88,21 @@ class FacultadController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
+        $campos = [
             'Nombre_Facultad' => ['required', 'string', 'max:255']
-        ]);
+        ];
+
+        $mensaje = [
+            'Nombre_Facultad.required'=>'El nombre es requerido'
+        ];
+
+        $this->validate($request,$campos,$mensaje);
+
         $todo = Facultad::find($id);
         $todo->Nombre_Facultad = $request->Nombre_Facultad;
         $todo->save();
        
-        return redirect()->route('facultad')->with('success', 'Todo updated successfully');
+        return redirect()->route('facultad')->with('success', 'Se ha guardado correctamente');
     }
 
     /**
