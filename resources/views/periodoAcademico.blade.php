@@ -11,14 +11,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Crear nuevo periodo academico</div>
-
-            @error('Inicio_Periodo')
+                <div class="card-header">Crear nuevo periodo académico</div>
+                @if (count($errors)>0)
                 <div class="alert alert-danger">@foreach ($errors->all() as $error)
-                                                <li>{{$error}}</li>
-                                                @endforeach
-                </div>
-            @enderror
+                    <li>{{$error}}</li>
+                    @endforeach
+                    </div>
+                @endif
+          
             
             @if (session('success'))
                     <h6 class="alert alert-success">{{ session('success') }}</h6>
@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="name3" class="col-md-4 col-form-label text-md-end">Nombre del Periodo</label>
+                            <label for="name3" class="col-md-4 col-form-label text-md-end">Periodo Académico</label>
 
                             <div class="col-md-6">
                                 <input id="name3" type="text" class="form-control"  name="Nombre_Periodo" value="{{ old('Nombre_Periodo') }}">
@@ -50,7 +50,7 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Enviar
+                                    Guardar
                                 </button>
                             </div>
                         </div>
@@ -60,14 +60,14 @@
                
                     
                 <div class="card ">
-                    <div class="card-header">Lista de los periodos Academicos</div>
+                    <div class="card-header">Lista de los periodos Académicos</div>
                     <div class='table-elemento__spacing' >
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th scope="col">Fecha inicio</th>
                                     <th scope="col">Fecha Fin</th>
-                                    <th scope="col">Nombre del Periodo</th>
+                                    <th scope="col">Periodo Académico</th>
                                     <th scope="col">Acción</th>
                                 </tr>
                             </thead>

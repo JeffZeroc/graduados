@@ -44,9 +44,9 @@ Route::get('registrodatoss', function () {
 Route::get('principal', function () {
     return view('home');
 });
-Route::get('listagraduados', function () {
+/* Route::get('listagraduados', function () {
     return view('tableDataSecretaria');
-});
+}); */
 
 /* Route::redirect('/','/crearUsuario');
 Route::view('/crearUsuarios', 'crearUsuarios')->name('crearUsuarios');
@@ -61,8 +61,8 @@ Route::view('/restablecerPassword', 'restablecerPassword')->name('restablecerPas
 Route::redirect('/','/registroDatos');
 Route::view('/registroDatos', 'registroDatos')->name('registroDatos');
 
-Route::redirect('/','/tableDataSecretaria');
-Route::view('/tableDataSecretaria', 'tableDataSecretaria')->name('tableDataSecretaria');
+/* Route::redirect('/','/tableDataSecretaria'); */
+/* Route::view('/tableDataSecretaria', 'tableDataSecretaria')->name('tableDataSecretaria'); */
 Route::group(['middleware'=>'auth'], function(){
     
     route::get('listaUsuarios',[App\Http\Controllers\AdministradorController::class,'index'])->name('inicio');
@@ -115,7 +115,10 @@ Route::group(['middleware'=>'auth'], function(){
 Route::group(['middleware'=>'auth'], function(){
     
     route::get('registroDatos',[App\Http\Controllers\EstudianteController::class,'index'])->name('registrodatos');
+    route::get('ListaUsuariosEstudiantes',[App\Http\Controllers\EstudianteController::class,'index2'])->name('tableDataSecretaria2');
     route::post('registroDatos',[App\Http\Controllers\EstudianteController::class,'store'])->name('registrodatosUsuario_save');
+    route::get('registroDatos/{id}',[App\Http\Controllers\EstudianteController::class,'show'])->name('registrodatosUsuario-show');
+    route::patch('registroDatos/{id}',[App\Http\Controllers\EstudianteController::class,'update'])->name('registrodatosUsuario_update');
 
 });
 

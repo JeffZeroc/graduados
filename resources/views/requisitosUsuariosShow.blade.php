@@ -11,7 +11,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Requisitos Estudiantiles</div>
+                <div class="card-header">Modificar Requisitos</div>
             @error('nombreRequisito')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -23,7 +23,7 @@
                
                     
                 <div class="card ">
-                    <div class="card-header">Lista de los requisitos</div>
+                    
                     <div class='table-elemento__spacing' >
                         <table class="table">
                             <thead>

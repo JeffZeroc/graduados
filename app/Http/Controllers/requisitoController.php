@@ -37,9 +37,16 @@ class requisitoController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'nombreRequisito' => ['required', 'string', 'max:255'],
-        ]);
+        
+        $campos = [
+            'nombreRequisito' => ['required', 'string', 'max:255']
+        ];
+
+        $mensaje = [
+            'nombreRequisito.required'=>'Rellene el formulario'
+        ];
+
+        $this->validate($request,$campos,$mensaje);
         $todo = new Requisitos;
         $todo->nombreRequisito = $request->nombreRequisito;
         $todo->save();
@@ -79,9 +86,15 @@ class requisitoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'nombreRequisito' => ['required', 'string', 'max:255'],
-        ]);
+        $campos = [
+            'nombreRequisito' => ['required', 'string', 'max:255']
+        ];
+
+        $mensaje = [
+            'nombreRequisito.required'=>'Rellene el formulario'
+        ];
+
+        $this->validate($request,$campos,$mensaje);
         $requisito = Requisitos::find($id);
         $requisito->nombreRequisito = $request->nombreRequisito;
         $requisito->save();

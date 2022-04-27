@@ -37,11 +37,20 @@ class PeriodoController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $campos = [
             'Inicio_Periodo' => ['required', 'date'],
             'Fin_Periodo' => ['required', 'date'],
             'Nombre_Periodo' => ['required', 'string', 'max:255']
-        ]);
+        ];
+
+        $mensaje = [
+            'Inicio_Periodo.required'=>'Establesca una fecha para INICIO del periodo académico',
+            'Fin_Periodo.required'=>'Establesca una fecha para FIN del periodo',
+            'Nombre_Periodo.required'=>'El nombre es un campo requerido'
+        ];
+
+        $this->validate($request,$campos,$mensaje);
+       
         
         $todo = new Periodo;
         $todo->Inicio_Periodo = $request->Inicio_Periodo;
@@ -85,11 +94,19 @@ class PeriodoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
+        $campos = [
             'Inicio_Periodo' => ['required', 'date'],
             'Fin_Periodo' => ['required', 'date'],
             'Nombre_Periodo' => ['required', 'string', 'max:255']
-        ]);
+        ];
+
+        $mensaje = [
+            'Inicio_Periodo.required'=>'Establesca una fecha para INICIO del periodo académico',
+            'Fin_Periodo.required'=>'Establesca una fecha para FIN del periodo',
+            'Nombre_Periodo.required'=>'El nombre es un campo requerido'
+        ];
+
+        $this->validate($request,$campos,$mensaje);
         
         $todo = Periodo::find($id);
         $todo->Inicio_Periodo = $request->Inicio_Periodo;
@@ -97,7 +114,7 @@ class PeriodoController extends Controller
         $todo->Nombre_Periodo = $request->Nombre_Periodo;
         $todo->save();
 
-        return redirect()->route('periodo')->with('success', 'Todo updated successfully');
+        return redirect()->route('periodo')->with('success', 'Periodo académico fue modificado con exito');
     }
     
 

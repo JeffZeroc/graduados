@@ -21,13 +21,13 @@ class Estudiante extends Model
 
 
 
-    public function Requisitos()
-    {
-        return $this->belongsToMany(Carrera::class,'estudiante_requisito','estudiante_id','requisito_id');
-    }
-
     /* public function Requisitos()
     {
-        return $this->belongsTo(Requisitos::class);
+        return $this->belongsToMany(Carrera::class,'estudiante_requisito','estudiante_id','requisito_id');
     } */
+
+    public function Requisitos()
+    {
+        return $this->hasMany(estudianteRequisito::class);
+    }
 }

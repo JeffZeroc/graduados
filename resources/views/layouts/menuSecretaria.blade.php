@@ -36,7 +36,7 @@
                 </div>
             
                 <li><a href="{{ route('registrodatos') }}"><i class="fas fa-solid fa-address-card"></i>Registrar graduado</a></li>
-                <li><a href="listagraduados"><i class="fas fa-search"></i>Consular</a></li>
+                <li><a href="{{ route('tableDataSecretaria2') }}"><i class="fas fa-search"></i>Consular</a></li>
                 <li>
                     <a  href="{{ route('logout') }}"
                     onclick="event.preventDefault();

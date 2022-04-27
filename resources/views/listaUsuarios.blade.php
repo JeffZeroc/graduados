@@ -21,8 +21,11 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card ">
-                        <div class="card-header">{{ __('Lista todos los usuarios registrados.') }}</div>
+                        <div class="card-header">Usuarios Registrados</div>
                         <div class='table-elemento__spacing' >
+                            @if (session('success'))
+                                <h6 class="alert alert-success">{{ session('success') }}</h6>
+                            @endif
                             <table class="table">
                                 <thead>
                                     <tr>

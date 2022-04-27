@@ -35,28 +35,28 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="name2" class="col-md-4 col-form-label text-md-end">Nombre de la Carrera</label>
+                            <label for="name2" class="col-md-4 col-form-label text-md-end">Nombre</label>
 
                             <div class="col-md-6">
                                 <input id="name2" placeholder="Sistemas" type="text" class="form-control"  name="Nombre_Carrera" value="{{ old('Nombre_Carrera') }}" >
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="name3" class="col-md-4 col-form-label text-md-end">Código de la Carrera</label>
+                            <label for="name3" class="col-md-4 col-form-label text-md-end">Código</label>
 
                             <div class="col-md-6">
                                 <input id="name3" placeholder="54321" type="number" class="form-control"  name="Codigo_Carrera" value="{{ old('Codigo_Carrera') }}" >
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="name4" class="col-md-4 col-form-label text-md-end">Duración de la Carrera</label>
+                            <label for="name4" class="col-md-4 col-form-label text-md-end">Semestres</label>
 
                             <div class="col-md-6">
                                 <input id="name4" placeholder="9" type="number" class="form-control"  name="Duracion_Carrera" value="{{ old('Duracion_Carrera') }}" >
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="name5" class="col-md-4 col-form-label text-md-end">Estado de la Carrera</label>
+                            <label for="name5" class="col-md-4 col-form-label text-md-end">Estado</label>
 
                             <div class="col-md-6">
                                 <input id="name5" placeholder="Habilitado" type="text" class="form-control"  name="Estado_Carrera" value="{{ old('Estado_Carrera') }}" >
@@ -75,7 +75,7 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Enviar
+                                    Guardar
                                 </button>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                
                     
                 <div class="card ">
-                    <div class="card-header">Lista de las carreras</div>
+                    <div class="card-header">Listar carreras</div>
                     <div class='table-elemento__spacing' >
                         <table class="table">
                             <thead>
@@ -93,7 +93,7 @@
                                     <th scope="col">Codigo ejecutar</th>
                                     <th scope="col">Carrera</th>
                                     <th scope="col">Código</th>
-                                    <th scope="col">Duración</th>
+                                    <th scope="col">Semestres</th>
                                     <th scope="col">Estado</th>
                                     <th scope="col">Facultad</th>
                                     <th scope="col">Acción</th>

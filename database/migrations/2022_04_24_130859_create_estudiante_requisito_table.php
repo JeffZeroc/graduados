@@ -13,7 +13,7 @@ class CreateEstudianteRequisitoTable extends Migration
      */
     public function up()
     {
-        Schema::create('estudiante_requisito', function (Blueprint $table) {
+        Schema::create('estudiante_requisitos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('estudiante_id');
             $table->unsignedBigInteger('requisito_id');
