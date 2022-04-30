@@ -11,18 +11,19 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                @error('nombreRequisito')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-        
-                @if (session('success'))
-                        <h6 class="alert alert-success">{{ session('success') }}</h6>
-                @endif
+                <div class="card-header">Modificar Requisitos</div>
+            @error('nombreRequisito')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+    
+            @if (session('success'))
+                    <h6 class="alert alert-success">{{ session('success') }}</h6>
+            @endif
 
                
                     
                 <div class="card ">
-                    <div class="card-header">Lista de los requisitos</div>
+                    
                     <div class='table-elemento__spacing' >
                         <table class="table">
                             <thead>

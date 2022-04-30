@@ -10,7 +10,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Requisitos Estudiantiles</div>
+                <div class="card-header">Requisitos</div>
             @error('nombreRequisito')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -32,7 +32,7 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Crear registro
+                                    Guardar
                                 </button>
                             </div>
                         </div>

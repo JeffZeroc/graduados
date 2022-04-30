@@ -36,8 +36,8 @@
                     <li><p>USUARIO: {{ Auth::user()->name }}</p></li>
                 </div>
             
-                <li @if(request()->is('registroDatos')) class='active' @endif ><a href="{{ route('registrodatos') }}" class='fas-subrayado' ><i class="fas fa-solid fa-address-card "></i>Registrar graduado</a></li>
-                <li @if(request()->is('listagraduados')) class='active' @endif ><a href="listagraduados" class='fas-subrayado' ><i class="fas fa-search "></i>Consular</a></li>
+                <li @if(request()->is('registroDatos')) class='active' @endif ><a href="{{route('registrodatos') }}" class='fas-subrayado' ><i class="fas fa-solid fa-address-card "></i>Registrar graduado</a></li>
+                <li @if(request()->is('tableDataSecretaria')) class='active' @endif ><a href="{{ route('tableDataSecretaria2') }}" class='fas-subrayado' ><i class="fas fa-search "></i>Consular</a></li>
                 <li>
                     <a class='fas-subrayado' href="{{ route('logout') }}"
                     onclick="event.preventDefault();

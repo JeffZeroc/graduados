@@ -38,14 +38,14 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="name3" class="col-md-4 col-form-label text-md-end">Código de la Carrera</label>
+                            <label for="name3" class="col-md-4 col-form-label text-md-end">Código</label>
 
                             <div class="col-md-6">
                                 <input id="name3" placeholder="54321" type="number" class="form-control"  name="Codigo_Carrera" value="{{ old('Codigo_Carrera') }}" >
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="name4" class="col-md-4 col-form-label text-md-end">Duración</label>
+                            <label for="name4" class="col-md-4 col-form-label text-md-end">Semestres</label>
 
                             <div class="col-md-6">
                                 <input id="name4" placeholder="9" type="number" class="form-control"  name="Duracion_Carrera" value="{{ old('Duracion_Carrera') }}" >
@@ -71,7 +71,7 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Crear nueva carrera
+                                    Guardar
                                 </button>
                             </div>
                         </div>

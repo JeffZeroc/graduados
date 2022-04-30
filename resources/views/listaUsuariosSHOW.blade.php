@@ -21,7 +21,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card ">
-                        <div class="card-header">{{ __('Lista todos los usuarios registrados.') }}</div>
+                        <div class="card-header">Modificar Usuario</div>
                         <div class='table-elemento__spacing' >
                             <form action="{{ route('usuario-save', ['id' => $UsuariosAdmin->id]) }}" method="POST">
                                 @method('PATCH')

@@ -41,7 +41,7 @@ class CarreraController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -52,15 +52,29 @@ class CarreraController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        
+        $campos = [
             'CODIGO_EJECUTAR' => ['required','numeric','digits:5'],
             'Nombre_Carrera' => ['required', 'string', 'max:255'],
             'Codigo_Carrera' => ['required','unique:carreras,Codigo_Carrera','numeric','digits:5'],
             'Duracion_Carrera' => ['required','numeric','digits:1'],
             'Estado_Carrera' => ['required', 'string', 'max:255'],
             'facultad_id' => ['required']
-        ]);
-        
+        ];
+
+        $mensaje = [
+            'CODIGO_EJECUTAR.required'=>'El codigo es requerido',
+            'CODIGO_EJECUTAR.digits'=>'El codigo debe tener cinco digitos',
+            'Nombre_Carrera.required'=>'LLene el nombre de forma correcta',
+            'Codigo_Carrera.required'=>'El codigo de carrera es requerido',
+            'Codigo_Carrera.digits'=>'El codigo debe tener cinco digitos',
+            'Duracion_Carrera.required'=>'Ingrese los semestres que corresponde la carrera',
+            'Estado_Carrera.required'=>'Ingrese el estado de forma correcta',
+            'facultad_id.required'=>'Ingrese la facultad'
+        ];
+
+        $this->validate($request,$campos,$mensaje);
+
         $todo = new Carrera;
         $todo->CODIGO_EJECUTAR = $request->CODIGO_EJECUTAR;
         $todo->Nombre_Carrera = $request->Nombre_Carrera;
@@ -106,14 +120,27 @@ class CarreraController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
+        $campos = [
             'CODIGO_EJECUTAR' => ['required','numeric','digits:5'],
             'Nombre_Carrera' => ['required', 'string', 'max:255'],
             'Codigo_Carrera' => ['required','numeric','digits:5'],
             'Duracion_Carrera' => ['required','numeric','digits:1'],
             'Estado_Carrera' => ['required', 'string', 'max:255'],
             'facultad_id' => ['required']
-        ]);
+        ];
+
+        $mensaje = [
+            'CODIGO_EJECUTAR.required'=>'El codigo es requerido',
+            'CODIGO_EJECUTAR.digits'=>'El codigo debe tener cinco digitos',
+            'Nombre_Carrera.required'=>'LLene el nombre de forma correcta',
+            'Codigo_Carrera.required'=>'El codigo de carrera es requerido',
+            'Codigo_Carrera.digits'=>'El codigo debe tener cinco digitos',
+            'Duracion_Carrera.required'=>'Ingrese los semestres que corresponde la carrera',
+            'Estado_Carrera.required'=>'Ingrese el estado de forma correcta',
+            'facultad_id.required'=>'Ingrese la facultad'
+        ];
+
+        $this->validate($request,$campos,$mensaje);
         
         $todo = Carrera::find($id);
         $todo->CODIGO_EJECUTAR = $request->CODIGO_EJECUTAR;
