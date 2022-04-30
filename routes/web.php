@@ -124,7 +124,7 @@ Route::group(['middleware'=>'auth'], function(){
 
 route::post('crearUsuario',[RegisterController::class,'register']);/* ESTÁ EN UN VEREMOS  */
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
