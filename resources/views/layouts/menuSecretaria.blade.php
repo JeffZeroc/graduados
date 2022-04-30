@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
-    <link rel=" shortcut icon" type="images/png" href="{{asset('img/milogo.png')}}">
+    <link rel=" shortcut icon" type="images/png" href="{{asset('img/logo-icon.png')}}">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     
     <!--TODO: AKI VAN A IR  LOS LINK DE LOS ARCHIVOS PARA EL FUNIONAMIENTO DE LA TABLA. -->

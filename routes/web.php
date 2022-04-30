@@ -98,7 +98,7 @@ route::get('registroDatos',[App\Http\Controllers\EstudianteController::class,'in
 
 route::post('crearUsuario',[RegisterController::class,'register']);/* ESTÁ EN UN VEREMOS  */
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
