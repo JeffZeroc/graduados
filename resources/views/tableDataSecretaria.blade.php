@@ -44,15 +44,16 @@
                                            
                                             <td> 
                                                 @foreach ($estudianteRequisitos as $r)
-
-                                                    <p>{{$r->Requisitos1 ->nombreRequisito}}   
+                                                    @if ($r->estudiante_id == $re->id)
+                                                        <p>{{$r->Requisitos1 ->nombreRequisito}}   
                                                 
-                                                    @if ($r->valorRequisito == 1)
-                                                     Aprobado
-                                                     @else
-                                                     Rechazado
+                                                        @if ($r->valorRequisito == 1)
+                                                            Aprobado
+                                                        @else
+                                                            Rechazado
+                                                        @endif
+                                                        </p>
                                                     @endif
-                                                    </p>
                                                     
                                                 @endforeach
                                             </td>
