@@ -1,12 +1,8 @@
 <?php
 
-use App\Http\Controllers\AdministradorController;
+
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\CarreraController;
-use App\Http\Controllers\EstudianteController;
-use App\Http\Controllers\FacultadController;
-use App\Http\Controllers\PeriodoController;
-use App\Http\Controllers\requisitoController;
+
 use App\Http\Controllers\SecretariaController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -22,8 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-route::get('crearUsuario',[App\Http\Controllers\CarreraController::class,'index2'])->name('crearUsuario');
-route::post('crearUsuario',[App\Http\Controllers\AdministradorController::class,'store']);
+
+route::post('user-create',[App\Http\Controllers\UserController::class,'store'])->name('user.store');
+route::get('user-create',[App\Http\Controllers\UserController::class,'create'])->name('user.create');
+
 route::get('restablecerPassword',[App\Http\Controllers\CarreraController::class,'index3'])->name('restablecercontraAdmin');
 
 /* route::get('tableDataSecretaria',[App\Http\Controllers\CarreraController::class,'index5'])->name('tableDataSecretaria2');
@@ -126,7 +124,7 @@ Route::group(['middleware'=>'auth'], function(){
 
 route::post('crearUsuario',[RegisterController::class,'register']);/* ESTÁ EN UN VEREMOS  */
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
