@@ -21,7 +21,7 @@ class Estudiante extends Model
     
     public function estudianteRequisito()
     {
-        return $this->belongsTo('App\Models\estudianteRequisito', 'estudiante_id', 'id');
+        return $this->hasMany('App\Models\estudianteRequisito', 'estudiante_id', 'id');
     }
 
 
@@ -31,8 +31,8 @@ class Estudiante extends Model
         return $this->belongsToMany(Carrera::class,'estudiante_requisito','estudiante_id','requisito_id');
     } */
 
-    public function Requisitos()
-    {
-        return $this->hasMany(estudianteRequisito::class);
-    }
+    //  public function Requisitos()
+    // {
+    //     return $this->hasMany(estudianteRequisito::class);
+    // }
 }

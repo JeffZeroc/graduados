@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
-    <link rel=" shortcut icon" type="images/png" href="{{asset('img/milogo.png')}}">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel=" shortcut icon" type="images/png" href="{{asset('favicon.ico')}}">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     
     <!--TODO: AKI VAN A IR  LOS LINK DE LOS ARCHIVOS PARA EL FUNIONAMIENTO DE LA TABLA. -->
@@ -20,7 +21,9 @@
     <link rel="stylesheet"  type="text/css" href="{{ asset('tableDataSecretaria/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css') }}">
     <!--font awesome con CDN-->  
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">  
-    
+    <link rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <link rel="stylesheet" 
+  href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <link rel="stylesheet" href="{{ asset('css/menuSecretariaEstilos.css') }}">
     <!-- ************************************************************** -->
 

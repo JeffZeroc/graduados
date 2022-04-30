@@ -65,7 +65,7 @@
                     <fieldset>
                         <legend>Requisitos</legend>
                         <!-- ESTOS DATOS SE GUARDAN EN LA BD TABLA Requisitos -->
-                        @foreach ($estudiantes->Requisitos as $Requisito)
+                        @foreach ($estudiantes->estudianteRequisito as $Requisito)
                         <label for="ingles">Aprobación de :</label>
                         <select name="requisito_id[]" id="ingles">
                             
