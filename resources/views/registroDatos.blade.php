@@ -22,10 +22,10 @@
                     <fieldset>
                         <legend>Estudiante</legend>
                         <!-- ESTOS DATOS SE GUARDAN EN LA BD TABAL Estudiante -->
-                        <input type="number" name="Cedula_Estudiante" id="cedula" value="{{old('Cedula_Estudiante')}}" placeholder="Ingresa la cedula" />
+                        <input type="text" name="Cedula_Estudiante" id="cedula" value="{{old('Cedula_Estudiante')}}" placeholder="Ingresa la cedula" />
                         <input type="text" value="{{old('Nombre_Estudiante')}}" name="Nombre_Estudiante" id="nombres" placeholder="Los nombres" />
                         <input type="text"  value="{{old('Apellido_Estudiante')}}" name="Apellido_Estudiante" id="apellidos" placeholder="Los apellidos" />
-                        <input type="number" value="{{old('Telefono_Estudiante')}}" name="Telefono_Estudiante" id="telefono" placeholder="El número de telefono" />
+                        <input type="text" value="{{old('Telefono_Estudiante')}}" name="Telefono_Estudiante" id="telefono" placeholder="El número de telefono" />
                         <input type="text" value="{{old('Nombre_CursoE')}}" name="Nombre_CursoE" id="nombreCurso" placeholder="Nombre del curso" />
                         <input type="email" value="{{old('Correo_InstitucionalE')}}" name="Correo_InstitucionalE" id="emailIntitucional" placeholder="Email Institucional" />
                         <input type="email" value="{{old('Correo_PersonalE')}}" name="Correo_PersonalE" id="emailPersonal" placeholder="Email Personal" />

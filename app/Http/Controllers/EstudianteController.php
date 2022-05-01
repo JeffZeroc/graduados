@@ -33,8 +33,9 @@ class EstudianteController extends Controller
     {
         $estudianteRequisitos = estudianteRequisito::get();
         $estudiantes = Estudiante::get();
+        $facultades = Facultad::all();
         /* return $requisitos2[0]{'nombreRequisito'}; */
-        return view('tableDataSecretaria' , compact('estudiantes','estudianteRequisitos'));
+        return view('tableDataSecretaria' , compact('estudiantes','estudianteRequisitos','facultades'));
         //return $estudiantes;
     }
 
@@ -58,10 +59,10 @@ class EstudianteController extends Controller
     {
 
         $campos = [
-            'Cedula_Estudiante' => ['required','numeric','digits:10'],
+            'Cedula_Estudiante' => ['required','string','max:10','min:10'],
             'Nombre_Estudiante' => ['required', 'string', 'max:255'],
             'Apellido_Estudiante' => ['required', 'string', 'max:255'],
-            'Telefono_Estudiante' => ['required','numeric','digits:10'],
+            'Telefono_Estudiante' => ['required','string','max:10','min:10'],
             'Nombre_CursoE' => ['required', 'string', 'max:255'],
             'Correo_InstitucionalE' => ['required', 'unique:estudiantes,Correo_InstitucionalE', 'string', 'max:255'],
             'Correo_PersonalE' => ['required','unique:estudiantes,Correo_PersonalE', 'string', 'max:255'],
@@ -72,11 +73,13 @@ class EstudianteController extends Controller
 
         $mensaje = [
             'Cedula_Estudiante.required'=>'La cédula es requerida',
-            'Cedula_Estudiante.digits'=>'La cedula debe tener 10 digitos',
+            'Cedula_Estudiante.max'=>'La cedula debe tener 10 digitos',
+            'Cedula_Estudiante.min'=>'La cedula debe tener 10 digitos',
             'Nombre_Estudiante.required'=>'El nombre es requerido',
             'Apellido_Estudiante.required'=>'El apellido es requerido',
             'Telefono_Estudiante.required'=>'El teléfono es un campo requerido',
-            'Telefono_Estudiante.digits'=>'El teléfono debe tener 10 dígitos',
+            'Telefono_Estudiante.max'=>'El teléfono debe tener 10 dígitos',
+            'Telefono_Estudiante.min'=>'El teléfono debe tener 10 dígitos',
             'Nombre_CursoE.required'=>'El nombre del curso es un campo requerido',
             'Correo_InstitucionalE.required'=>'El correo institucional es un campo requerido',
             'Correo_InstitucionalE.unique'=>'El correo institucional debe ser unico',
@@ -159,10 +162,10 @@ class EstudianteController extends Controller
     public function update(Request $request, $id)
     {
         $campos = [
-            'Cedula_Estudiante' => ['required','numeric','digits:10'],
+            'Cedula_Estudiante' => ['required','string','max:10','min:10'],
             'Nombre_Estudiante' => ['required', 'string', 'max:255'],
             'Apellido_Estudiante' => ['required', 'string', 'max:255'],
-            'Telefono_Estudiante' => ['required','numeric','digits:10'],
+            'Telefono_Estudiante' => ['required','string','max:10','min:10'],
             'Nombre_CursoE' => ['required', 'string', 'max:255'],
             'Correo_InstitucionalE' => ['required', 'string', 'max:255'],
             'Correo_PersonalE' => ['required', 'string', 'max:255'],
@@ -173,11 +176,13 @@ class EstudianteController extends Controller
 
         $mensaje = [
             'Cedula_Estudiante.required'=>'La cédula es requerida',
-            'Cedula_Estudiante.digits'=>'La cedula debe tener 10 digitos',
+            'Cedula_Estudiante.max'=>'La cedula debe tener 10 digitos',
+            'Cedula_Estudiante.min'=>'La cedula debe tener 10 digitos',
             'Nombre_Estudiante.required'=>'El nombre es requerido',
             'Apellido_Estudiante.required'=>'El apellido es requerido',
             'Telefono_Estudiante.required'=>'El teléfono es un campo requerido',
-            'Telefono_Estudiante.digits'=>'El teléfono debe tener 10 dígitos',
+            'Telefono_Estudiante.max'=>'El teléfono debe tener 10 dígitos',
+            'Telefono_Estudiante.min'=>'El teléfono debe tener 10 dígitos',
             'Nombre_CursoE.required'=>'El nombre del curso es un campo requerido',
             'Correo_InstitucionalE.required'=>'El correo institucional es un campo requerido',
             'Correo_PersonalE.required'=>'El correo personal es un campo requerido',
@@ -218,7 +223,7 @@ class EstudianteController extends Controller
             }
         }
         //return $todo2;
-        return redirect()->route('registrodatos')->with('success', 'Se ha guardado correctamente');
+        return redirect()->route('tableDataSecretaria2')->with('success', 'Se ha guardado correctamente');
     }
 
     /**

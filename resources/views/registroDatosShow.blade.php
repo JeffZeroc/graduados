@@ -27,10 +27,10 @@
                     <fieldset>
                         <legend>Estudiante</legend>
                         <!-- ESTOS DATOS SE GUARDAN EN LA BD TABAL Estudiante -->
-                        <input type="number" name="Cedula_Estudiante" id="cedula" value="{{$estudiantes->Cedula_Estudiante}}" placeholder="Ingresa la cedula" />
+                        <input type="text" name="Cedula_Estudiante" id="cedula" value="{{$estudiantes->Cedula_Estudiante}}" placeholder="Ingresa la cedula" />
                         <input type="text" value="{{$estudiantes->Nombre_Estudiante}}" name="Nombre_Estudiante" id="nombres" placeholder="Los nombres" />
                         <input type="text"  value="{{$estudiantes->Apellido_Estudiante}}" name="Apellido_Estudiante" id="apellidos" placeholder="Los apellidos" />
-                        <input type="number" value="{{$estudiantes->Telefono_Estudiante}}" name="Telefono_Estudiante" id="telefono" placeholder="El número de telefono" />
+                        <input type="text" value="{{$estudiantes->Telefono_Estudiante}}" name="Telefono_Estudiante" id="telefono" placeholder="El número de telefono" />
                         <input type="text" value="{{$estudiantes->Nombre_CursoE}}" name="Nombre_CursoE" id="nombreCurso" placeholder="Nombre del curso" />
                         <input type="email" value="{{$estudiantes->Correo_InstitucionalE}}" name="Correo_InstitucionalE" id="emailIntitucional" placeholder="Email Institucional" />
                         <input type="email" value="{{$estudiantes->Correo_PersonalE}}" name="Correo_PersonalE" id="emailPersonal" placeholder="Email Personal" />
@@ -66,7 +66,7 @@
                         <legend>Requisitos</legend>
                         <!-- ESTOS DATOS SE GUARDAN EN LA BD TABLA Requisitos -->
                         @foreach ($estudiantes->estudianteRequisito as $Requisito)
-                        <label for="ingles">Aprobación de :</label>
+                        <label for="ingles">Aprobación de {{$Requisito->Requisitos1 ->nombreRequisito}}:</label>
                         <select name="requisito_id[]" id="ingles">
                             
                             <option value="1" @if ($Requisito->valorRequisito == 1) selected="selected" @endif>Si</option>
