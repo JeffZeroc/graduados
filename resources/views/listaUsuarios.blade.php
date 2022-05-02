@@ -1,18 +1,12 @@
 @extends('layouts.base')
-
-
 @section('title', 'Lista de Usuarios') 
-
-
 @section('baseMenu')
-    
-
     <head>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+        <link rel=" shortcut icon" type="images/png" href="{{asset('img/logo-icon.png')}}">
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
@@ -59,7 +53,7 @@
                                             <a href="{{ route('usuario-show', ['id' => $admins->id]) }}" @if ( Auth::user()->id == $admins->id)
                                                 style="pointer-events: none; 
                                                 cursor: default;opacity: .6;" 
-                                                @endif  class="btn btn-success me-3">Modificar</a>
+                                                @endif  class="btn btn-success me-3">Editar</a>
                                             
                                             <form action="{{ url('/listaUsuarios/'.$admins->id) }}" class="d-inline" method="post">
                                                 @csrf

@@ -29,12 +29,13 @@
             color: #fff;
         }
         #navbarDropdown{
-            letter-spacing: 1px;
             color: #fff;
             font-size: 15px;
             background: #222;
-            padding: 20px;
+            padding: 8px;
             border-radius: 6px;
+            margin: 10px;
+            margin-left: 0px;
         }
     </style>
     @yield('style')
@@ -43,11 +44,9 @@
         <div class="sidebar">
             <h4><a href="home" class='admin-elemento__panel' >ADMINISTRADOR</a></h4>
                 <ul id="navegacion">
-               <li>
-                    <p id="navbarDropdown" > Usuario: {{ Auth::user()->name }} </p>
-                </li>
+                    <p id="navbarDropdown" > User: {{ Auth::user()->name }} </p>
                     <div id="myDiv">
-                        <li @if(request()->is('user.create')) class='active' @endif  class="enlaces" ><a href="{{ route('user.create') }} "><i class="fas fa-regular fa-user"></i>Crear usuario</a></li>
+                        <li @if(request()->is('user-create')) class='active' @endif  class="enlaces" ><a href="{{ route('user.create') }} "><i class="fas fa-regular fa-user"></i>Crear usuario</a></li>
                         <li @if(request()->is('listaUsuarios')) class='active' @endif  class="enlaces"><a href="{{ route('inicio') }}"><i class="fas fa-regular fa-users"></i>Tipo de usuarios</a></li>
                         <li @if(request()->is('requisitosUsuarios')) class='active' @endif class="enlaces"><a href="{{ route('requisitos') }}"><i class="fas fa-address-card"></i>Requisitos Estudiantiles</a></li>
                         <li @if(request()->is('periodoAcademico')) class='active' @endif class="enlaces"><a href="{{ route('periodo') }}"><i class="fas fa-parking"></i>Periodo Académico</a></li>

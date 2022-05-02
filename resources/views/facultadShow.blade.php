@@ -6,12 +6,14 @@
 
 @section('baseMenu')
     
-
+<head>
+    <link rel=" shortcut icon" type="images/png" href="{{asset('img/logo-icon.png')}}">
+</head>
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Modificar facultad</div>
+                <div class="card-header">Actualizar facultad</div>
 
                 @if (count($errors)>0)
                 <div class="alert alert-danger">@foreach ($errors->all() as $error)
@@ -36,7 +38,7 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Modificar
+                                    Guardar
                                 </button>
                             </div>
                         </div>

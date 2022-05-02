@@ -4,6 +4,7 @@
     
 <head>
     <link rel="stylesheet" href="{{ asset('css/base.css') }}">
+    <link rel=" shortcut icon" type="images/png" href="{{asset('img/logo-icon.png')}}">
 </head>
 
 <div class="container py-5">
@@ -61,7 +62,7 @@
                                         <td>{{ $requisito->nombreRequisito }}</td>
                                         <td>
                                         <div class="col-md-9 d-flex align-items-center">
-                                            <a href="{{ route('requerimientos-show', ['id' => $requisito->id]) }}" class="btn btn-success me-3">Modificar</a>
+                                            <a href="{{ route('requerimientos-show', ['id' => $requisito->id]) }}" class="btn btn-success me-3">Editar</a>
                                             
                                             {{-- <form action="{{ route('requerimientos-delete', ['id' => $requisito->id]) }}" class="d-inline" method="post">
                                                 @csrf

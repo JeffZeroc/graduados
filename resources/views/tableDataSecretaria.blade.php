@@ -1,11 +1,7 @@
 @extends('layouts.menuSecretaria')
-
 @section('title', 'Consultar') 
-
 @section('menuSecretaria')
-
-    <!--Ejemplo tabla con DataTables-->
-    
+<!--Ejemplo tabla con DataTables-->
     <style>
         ul li .modal_lista{
             background-color: #268666;
@@ -36,7 +32,7 @@
                 padding: 5px 10px;
             }
     </style>
-    <div class="container container2">
+    <div class=" container2">
                     <div class="row">
                             <div class="col-lg-12">
                                 <div class="table-responsive">        

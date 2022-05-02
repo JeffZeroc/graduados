@@ -6,12 +6,15 @@
 
 @section('baseMenu')
     
+<head>
+    <link rel=" shortcut icon" type="images/png" href="{{asset('img/logo-icon.png')}}">
+</head>
 
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Modificar Requisitos</div>
+                <div class="card-header">Actualizar Requisitos</div>
             @error('nombreRequisito')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
@@ -44,7 +47,7 @@
                                     <div class="col-md-9 d-flex align-items-center">
                                         
                                        
-                                            <input type="submit" onclick="return confirm('Quieres modificar?')" class="btn btn-success" value="Modificar">
+                                            <input type="submit" onclick="return confirm('Quieres modificar?')" class="btn btn-success" value="Actualizar">
                                         </form>
                                     </div>
                                     </td>

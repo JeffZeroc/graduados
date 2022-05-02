@@ -2,7 +2,9 @@
 @section('title', 'Lista de Usuarios') 
 @section('baseMenu')
     
-
+<head>
+    <link rel=" shortcut icon" type="images/png" href="{{asset('img/logo-icon.png')}}">
+</head>
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -116,7 +118,7 @@
                                         <td>{{ $facultad->Nombre_Facultad  }}</td>
                                         <td>
                                         <div class="col-md-9 d-flex align-items-center">
-                                            <a href="{{ route('carrera-show', ['id' => $carrera->id]) }}" class="btn btn-success me-3">Modificar</a>
+                                            <a href="{{ route('carrera-show', ['id' => $carrera->id]) }}" class="btn btn-success me-3">Editar</a>
                                         </div>
                                         </td>
                                     </tr>     

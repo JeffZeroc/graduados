@@ -3,12 +3,7 @@
 @section('title', 'Registro Datos') 
 
 @section('menuSecretaria')
-    
-       
         <div class="main_content">
-            
-           
-
             <div class="table-filtrar">
                 <!--****************************************-->
                 <form  action="{{ route('registrodatosUsuario_update', ['id' => $estudiantes->id]) }}" class="contenedor-form" method="POST">

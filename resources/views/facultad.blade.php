@@ -6,7 +6,9 @@
 
 @section('baseMenu')
     
-
+<head>
+    <link rel=" shortcut icon" type="images/png" href="{{asset('img/logo-icon.png')}}">
+</head>
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -67,7 +69,7 @@
                                         <td>{{ $facultad->Nombre_Facultad }}</td>
                                         <td>
                                         <div class="col-md-9 d-flex align-items-center">
-                                            <a href="{{ route('facultad-show', ['id' => $facultad->id]) }}" class="btn btn-success me-3">Modificar</a>
+                                            <a href="{{ route('facultad-show', ['id' => $facultad->id]) }}" class="btn btn-success me-3">Editar</a>
                                             
                                             {{-- <form action="{{ route('facultad-delete', ['id' => $facultad->id]) }}" class="d-inline" method="post">
                                                 @csrf

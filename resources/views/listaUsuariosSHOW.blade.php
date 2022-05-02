@@ -12,7 +12,7 @@
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+        <link rel=" shortcut icon" type="images/png" href="{{asset('img/logo-icon.png')}}">
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
@@ -21,7 +21,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card ">
-                        <div class="card-header">Modificar Usuario</div>
+                        <div class="card-header">Actualizar Usuario</div>
                         <div class='table-elemento__spacing' >
                             <form action="{{ route('usuario-save', ['id' => $UsuariosAdmin->id]) }}" method="POST">
                                 @method('PATCH')
@@ -80,7 +80,7 @@
                                         <td>
                                         <div class="col-md-9 d-flex align-items-center">
                                             
-                                            <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal{{$UsuariosAdmin->id}}">Guardar</a>
+                                            <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal{{$UsuariosAdmin->id}}">Actualizar</a>
                                            
                                             
                                         </div>
