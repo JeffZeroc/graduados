@@ -54,20 +54,22 @@ class CarreraController extends Controller
     {
         
         $campos = [
-            'CODIGO_EJECUTAR' => ['required','numeric','digits:5'],
+            'CODIGO_EJECUTAR' => ['required','string','max:5','min:5'],
             'Nombre_Carrera' => ['required', 'string', 'max:255'],
-            'Codigo_Carrera' => ['required','unique:carreras,Codigo_Carrera','numeric','digits:5'],
+            'Codigo_Carrera' => ['required','unique:carreras,Codigo_Carrera','string','max:5','min:5'],
             'Duracion_Carrera' => ['required','numeric','digits:1'],
-            'Estado_Carrera' => ['required', 'string', 'max:255'],
+            'Estado_Carrera' => ['required'],
             'facultad_id' => ['required']
         ];
 
         $mensaje = [
             'CODIGO_EJECUTAR.required'=>'El codigo es requerido',
-            'CODIGO_EJECUTAR.digits'=>'El codigo debe tener cinco digitos',
+            'CODIGO_EJECUTAR.max'=>'El codigo debe tener cinco digitos',
+            'CODIGO_EJECUTAR.min'=>'El codigo debe tener cinco digitos',
             'Nombre_Carrera.required'=>'LLene el nombre de forma correcta',
             'Codigo_Carrera.required'=>'El codigo de carrera es requerido',
-            'Codigo_Carrera.digits'=>'El codigo debe tener cinco digitos',
+            'Codigo_Carrera.max'=>'El codigo debe tener cinco digitos',
+            'Codigo_Carrera.min'=>'El codigo debe tener cinco digitos',
             'Duracion_Carrera.required'=>'Ingrese los semestres que corresponde la carrera',
             'Estado_Carrera.required'=>'Ingrese el estado de forma correcta',
             'facultad_id.required'=>'Ingrese la facultad'
@@ -121,20 +123,22 @@ class CarreraController extends Controller
     public function update(Request $request, $id)
     {
         $campos = [
-            'CODIGO_EJECUTAR' => ['required','numeric','digits:5'],
+            'CODIGO_EJECUTAR' => ['required','string','max:5','min:5'],
             'Nombre_Carrera' => ['required', 'string', 'max:255'],
-            'Codigo_Carrera' => ['required','numeric','digits:5'],
+            'Codigo_Carrera' => ['required','string','max:5','min:5'],
             'Duracion_Carrera' => ['required','numeric','digits:1'],
-            'Estado_Carrera' => ['required', 'string', 'max:255'],
+            'Estado_Carrera' => ['required'],
             'facultad_id' => ['required']
         ];
 
         $mensaje = [
             'CODIGO_EJECUTAR.required'=>'El codigo es requerido',
-            'CODIGO_EJECUTAR.digits'=>'El codigo debe tener cinco digitos',
+            'CODIGO_EJECUTAR.max'=>'El codigo debe tener cinco digitos',
+            'CODIGO_EJECUTAR.min'=>'El codigo debe tener cinco digitos',
             'Nombre_Carrera.required'=>'LLene el nombre de forma correcta',
             'Codigo_Carrera.required'=>'El codigo de carrera es requerido',
-            'Codigo_Carrera.digits'=>'El codigo debe tener cinco digitos',
+            'Codigo_Carrera.max'=>'El codigo debe tener cinco digitos',
+            'Codigo_Carrera.min'=>'El codigo debe tener cinco digitos',
             'Duracion_Carrera.required'=>'Ingrese los semestres que corresponde la carrera',
             'Estado_Carrera.required'=>'Ingrese el estado de forma correcta',
             'facultad_id.required'=>'Ingrese la facultad'

@@ -100,7 +100,7 @@ class requisitoController extends Controller
         $requisito->save();
        
        /*  return view('listaUsuarios',$datos);   */
-        return redirect()->route('requisitos')->with('success', 'Todo updated successfully');
+        return redirect()->route('requisitos')->with('success', 'Se ha guardado correctamente');
     }
 
     /**
