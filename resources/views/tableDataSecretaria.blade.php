@@ -52,8 +52,9 @@
                                             <th>Correo personal</th>
                                             <th>Estado</th> --}}
                                             <th>Periodo</th>
-                                            <th>Carrera_id</th>
-                                            <th>requisitos</th>
+                                            <th>Carrera</th>
+                                            <th>Requisitos</th>
+                                            <th>Estado</th>
                                             <th class="accion"></th>
                                         </tr>
                                     </thead>
@@ -62,14 +63,14 @@
                                         @foreach ($estudiantes as $re)
                                         <tr>
                                             <td>{{$re->Cedula_Estudiante}}</td>
-                                            <td>{{$re->Nombre_Estudiante}}</td>
+                                            <td>{{$re->Nombre_Estudiante}} {{$re->Apellido_Estudiante}}</td>
                                             {{-- <td>{{$estudiante->Apellido_Estudiante}}</td>                                
                                             <td>{{$estudiante->Telefono_Estudiante}}</td>
                                             <td>{{$estudiante->Nombre_CursoE}}</td>
                                             <td>{{$estudiante->Correo_InstitucionalE}}</td>
                                             <td>{{$estudiante->Correo_PersonalE}}</td>
                                             <td>{{$estudiante->Estado_Estudiante}}</td> --}}
-                                            <td>{{$re->periodo->Nombre_Periodo }}<br>{{$re->periodo->Inicio_Periodo }}<br>{{$re->periodo->Fin_Periodo }}</td>
+                                            <td>{{$re->periodo->Nombre_Periodo }}</td>
                                             <td>{{$re->Carrera->Nombre_Carrera }}</td>
                                            
                                             <td> 
@@ -87,6 +88,7 @@
                                                     
                                                 @endforeach
                                             </td>
+                                            <td>{{$re->Estado_Estudiante }}</td>
                                             
                                             <td>
                                                 <button type="button" class="btn btn-success" ><a href="{{ route('registrodatosUsuario-show', ['id' => $re->id]) }}" id="color-editar"><svg style="color: #fff"xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -116,8 +118,8 @@
                                                     
                                                    <ul>
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Cedula: </span> {{$re->Cedula_Estudiante}}</li>
-                                                       <li style="margin-right: 5px;"><span class="modal_lista">Nombre: </span> {{$re->Nombre_Estudiante}}</li>
-                                                       <li style="margin-right: 5px;"><span class="modal_lista">Apellido: </span> {{$re->Apellido_Estudiante}}</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">Nombres: </span> {{$re->Nombre_Estudiante}} {{$re->Apellido_Estudiante}}</li>
+                                                       
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Telefono: </span> {{$re->Telefono_Estudiante}}</li>
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Carrera: </span> {{$re->Carrera->Nombre_Carrera}}</li>
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Curso: </span> {{$re->Nombre_CursoE}}</li>
@@ -130,16 +132,16 @@
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Correo Personal: </span> {{$re->Correo_PersonalE}}</li>
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Estado: </span> {{$re->Estado_Estudiante}}</li>
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Periodo Academico: </span> {{$re->periodo->Nombre_Periodo}}</li>
-                                                       <li>@foreach ($estudianteRequisitos as $r)
+                                                       @foreach ($estudianteRequisitos as $r)
+                                                       
                                                         @if ($r->estudiante_id == $re->id)
-                                                        <span class="modal_lista">{{$r->Requisitos1 ->nombreRequisito}}: </span>
+                                                        <li style="margin-right: 5px;"><span class="modal_lista">{{$r->Requisitos1 ->nombreRequisito}}: </span>
                                                     
                                                             @if ($r->valorRequisito == 1)
-                                                            <span class="bien">Aprobado <br>
+                                                            <span class="bien">Aprobado <br></span>
                                                             @else
-                                                            <span class="mal">Rechazado <br>
+                                                            <span class="mal">Rechazado <br></span>
                                                             @endif
-                                                            </span>
                                                         @endif
                                                         
                                                     @endforeach</li>
