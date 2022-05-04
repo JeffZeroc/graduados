@@ -32,10 +32,7 @@
             <ul>
                 <div class="userName">
                     <p>{{ Auth::user()->name }}</p>
-                </div>
-                <hr>    
-                    <p class='interfaces'>Interfaces</p>
-                <hr>    
+                </div>   
                 <li @if(request()->is('registroDatos')) class='active' @endif ><a href="{{route('registrodatos') }}" class='fas-subrayado' ><i class="fas fa-solid fa-address-card "></i>Registrar graduado</a></li>
                 <li @if(request()->is('ListaUsuariosEstudiantes')) class='active' @endif ><a href="{{ route('tableDataSecretaria2') }}" class='fas-subrayado' ><i class="fas fa-search "></i>Consular</a></li>
                 <li>
