@@ -29,7 +29,7 @@
                             <label for="name1" class="col-md-4 col-form-label text-md-end">Codigo Ejecutar</label>
 
                             <div class="col-md-6">
-                                <input id="name1" placeholder="12345" type="number" class="form-control"  name="CODIGO_EJECUTAR" value="{{ $carreras->CODIGO_EJECUTAR }}" autofocus>
+                                <input id="name1" placeholder="12345" type="text" class="form-control"  name="CODIGO_EJECUTAR" value="{{ $carreras->CODIGO_EJECUTAR }}" autofocus>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -43,7 +43,7 @@
                             <label for="name3" class="col-md-4 col-form-label text-md-end">Código de la Carrera</label>
 
                             <div class="col-md-6">
-                                <input id="name3" placeholder="54321" type="number" class="form-control"  name="Codigo_Carrera" value="{{ $carreras->Codigo_Carrera }}" >
+                                <input id="name3" placeholder="54321" type="text" class="form-control"  name="Codigo_Carrera" value="{{ $carreras->Codigo_Carrera }}" >
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -55,10 +55,9 @@
                         </div>
                         <div class="row mb-3">
                             <label for="name5" class="col-md-4 col-form-label text-md-end">Estado de la Carrera</label>
-
-                            <div class="col-md-6">
-                                <input id="name5" placeholder="Habilitado" type="text" class="form-control"  name="Estado_Carrera" value="{{ $carreras->Estado_Carrera }}" >
-                            </div>
+                            <select name="Estado_Carrera" id="name5" class="col-md-6">
+                                <option value="Habilitado" class="form-control"  @if ($carreras->Estado_Carrera == 'Habilitado') selected="selected" @endif >Habilitado</option>
+                                <option value="Inhabilitado" class="form-control"  @if ($carreras->Estado_Carrera == 'Inhabilitado') selected="selected" @endif >Inhabilitado</option>                            </select>
                         </div>
                         <div class="row mb-3">
                             <label for="name6" class="col-md-4 col-form-label text-md-end">Facultad</label>
