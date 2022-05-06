@@ -40,6 +40,15 @@ class EstudiantesImport implements ToModel, WithHeadingRow, WithBatchInserts, Wi
             'Estado_Estudiante'=> $row['estado'],
             'periodo_id'=> $this->periodos[$row['periodo']],
             'carrera_id'=> $this->carreras[$row['carrera']],
+
+            //Idea
+            // foreach ($requisitos as $r ) {
+            //    estudiantes_requisitos
+            //     'id_requisito' => $this->periodos[$row[$r]],
+            //     'id_estudiante'
+            //     'valor'
+            // }
+            
         ]);
         
     }
