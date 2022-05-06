@@ -122,10 +122,12 @@ Route::group(['middleware'=>'auth'], function(){
 });
 
 
-route::post('crearUsuario',[RegisterController::class,'register']);/* ESTÁ EN UN VEREMOS  */
+route::post('crearUsuario',[RegisterController::class,'register']);
 Route::get('/', function () {
     return view('auth.login');
 });
+Route::get('alumnos/import',[SecretariaController::class,'importForm'])->name('alumnos.importForm');
+Route::post('alumnos/import',[SecretariaController::class,'import'])->name('alumnos.import');
 
 Auth::routes();
 

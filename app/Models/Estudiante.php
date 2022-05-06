@@ -24,6 +24,19 @@ class Estudiante extends Model
         return $this->hasMany('App\Models\estudianteRequisito', 'estudiante_id', 'id');
     }
 
+    protected $fillable = [
+        'Cedula_Estudiante',
+        'Nombre_Estudiante',
+        'Apellido_Estudiante',
+        'Telefono_Estudiante',
+        'Nombre_CursoE',
+        'Correo_InstitucionalE',
+        'Correo_PersonalE',
+        'Estado_Estudiante',
+        'periodo_id',
+        'carrera_id',
+    ];
+
 
 
     /* public function Requisitos()
