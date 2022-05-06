@@ -60,7 +60,7 @@
                     <div class="row">
                         <div class="col-sm">
                             <div class='container-requisitos'>
-                                <p>Requisitos</p>
+                                <p>Requisitos Asignaturas extracurriculares </p>
                                 <!-- ESTOS DATOS SE GUARDAN EN LA BD TABLA Requisitos -->
                                 @foreach ($requisitos as $requisito)
                                 <br>
@@ -76,7 +76,7 @@
                         </div>
                         <div class='col-sm'>
                             <div class='container-periodo'>
-                                <p>Periodo</p>    
+                                <p>Periodo Academico</p>    
                                 <select name="periodo_id" id="nombrePeriodo">
                                     @foreach ($periodos as $periodo)
                                     <option value="{{$periodo->id}}">{{$periodo->Nombre_Periodo}}</option>
