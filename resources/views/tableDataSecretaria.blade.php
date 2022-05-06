@@ -42,9 +42,9 @@
                         </div>
                         @endif
                             <div class="col-lg-12">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#importar">
+                                {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#importar">
                                     Importar Excel
-                                </button>
+                                </button> --}}
                                 <div class="table-responsive">        
                                     <table id="example" class="table table-striped table-bordered corredor" cellspacing="0" width="100%">
                                     <thead>
