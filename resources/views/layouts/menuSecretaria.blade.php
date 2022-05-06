@@ -8,6 +8,10 @@
     <link rel=" shortcut icon" type="images/png" href="{{asset('img/logo-icon.png')}}">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
     
+    {{-- Agregado para funcionamiento del modal --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
     <!--TODO: AKI VAN A IR  LOS LINK DE LOS ARCHIVOS PARA EL FUNIONAMIENTO DE LA TABLA. -->
     <!-- LINK PARA DATATABLE -->
     <!-- Bootstrap CSS -->
@@ -38,6 +42,7 @@
                 <hr>    
                 <li @if(request()->is('registroDatos')) class='active' @endif ><a href="{{route('registrodatos') }}" class='fas-subrayado' ><i class="fas fa-solid fa-address-card "></i>Registrar graduado</a></li>
                 <li @if(request()->is('ListaUsuariosEstudiantes')) class='active' @endif ><a href="{{ route('tableDataSecretaria2') }}" class='fas-subrayado' ><i class="fas fa-search "></i>Consular</a></li>
+                
                 <li>
                     <a class='fas-subrayado' href="{{ route('logout') }}"
                     onclick="event.preventDefault();

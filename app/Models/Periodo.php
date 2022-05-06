@@ -13,4 +13,11 @@ class Periodo extends Model
     {
         return $this->hasMany(Estudiante::class);
     }
+
+    protected $fillable = [
+        'Inicio_Periodo',
+        'Fin_Periodo',
+        'Nombre_Periodo',
+    ];
+
 }
