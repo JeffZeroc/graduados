@@ -69,6 +69,8 @@ class EstudiantesImport implements ToModel, WithHeadingRow, WithBatchInserts, Wi
     {
         return [   
             '*.Cedula_Estudiante' => [
+                'string',
+                'required',
                 'unique:estudiantes',
             ]            
         ];
