@@ -37,15 +37,4 @@ class Estudiante extends Model
         'carrera_id',
     ];
 
-
-
-    /* public function Requisitos()
-    {
-        return $this->belongsToMany(Carrera::class,'estudiante_requisito','estudiante_id','requisito_id');
-    } */
-
-    //  public function Requisitos()
-    // {
-    //     return $this->hasMany(estudianteRequisito::class);
-    // }
 }
