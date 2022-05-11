@@ -72,7 +72,7 @@
                                                 @if ($UsuariosAdmin->rol == "secretaria")
                                                 <option value="administrador">administrador</option>
                                                 @else
-                                                <option value="secretaria">secretaria</option>
+                                                <option value="secretaria">colaborador</option>
                                                 @endif
                                             </select>
                                             
