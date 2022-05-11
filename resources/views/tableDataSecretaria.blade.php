@@ -20,7 +20,9 @@
                 color: #fff;
                 border-style: none;
                 margin-bottom: 10px;
-                padding: 5px 10px;
+                padding: 1px 5px;
+                font-size: 14px;
+                margin-bottom: 5px;
             }
             .mal{
                 background-color: #dc3545;
@@ -29,7 +31,9 @@
                 color: #fff;
                 border-style: none;
                 margin-bottom: 10px;
-                padding: 5px 10px;
+                padding: 1px 5px;
+                font-size: 14px;
+                margin-bottom: 5px;
             }
     </style>
     <div class=" container2">
