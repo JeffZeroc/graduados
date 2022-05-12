@@ -26,6 +26,7 @@
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Correo</th>
                                         <th scope="col">Perfil</th>
+                                        <th scope="col">Estado</th>
                                         <th scope="col">Accion</th>
                                     </tr>
                                 </thead>
@@ -47,7 +48,28 @@
                                     <tr>
                                         <td>{{ $admins->name }}</td>
                                         <td>{{ $admins->email }}</td>
-                                        <td>{{ $admins->rol }}</td>
+                                        <td>@if ($admins->rol == "secretaria")
+                                            Colaborador
+                                            @else
+                                            {{ $admins->rol }}
+                                            @endif
+                                        </td>
+                                        @if ($admins->estado == 'Inhabilitado')
+                                        <td style="background-color: #cf0404c9;
+                                        border-radius: 5px;
+                                        text-align: center;
+                                        display: flex;
+                                        justify-content: center;
+                                        color: #fff;
+                                        margin-right: 20px;">{{ $admins->estado}}</td>
+                                        @else
+                                        <td style="border-radius: 5px;
+                                        text-align: center;
+                                        display: flex;
+                                        justify-content: center;
+                                        margin-right: 20px;">{{ $admins->estado}}</td>
+                                        @endif
+                                        
                                         <td>
                                         <div class="col-md-9 d-flex align-items-center">
                                             <a href="{{ route('usuario-show', ['id' => $admins->id]) }}" @if ( Auth::user()->id == $admins->id)
@@ -55,13 +77,13 @@
                                                 cursor: default;opacity: .6;" 
                                                 @endif  class="btn btn-success me-3">Editar</a>
                                             
-                                            <form action="{{ url('/listaUsuarios/'.$admins->id) }}" class="d-inline" method="post">
+                                            {{-- <form action="{{ url('/listaUsuarios/'.$admins->id) }}" class="d-inline" method="post">
                                                 @csrf
                                                 {{ method_field('DELETE') }}
                                                 <input type="submit" @if ( Auth::user()->id == $admins->id)
                                                 disabled  
                                                 @endif onclick="return confirm('Quieres borrar?')" class="btn btn-danger" value="Borrar">
-                                            </form>
+                                            </form> --}}
                                         </div>
                                         </td>
                                     </tr>                                       

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Imports\EstudiantesImport;
+use App\Models\Estudiante;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SecretariaController extends Controller
 {
@@ -82,4 +85,17 @@ class SecretariaController extends Controller
     {
         //
     }
-}
+    
+    public function importForm(){
+        return view('import');
+    }
+ 
+    public function import(Request $request)
+        {
+            $file = $request->file('import_file');
+
+            Excel::import(new EstudiantesImport, $file);
+
+            return redirect()->route('tableDataSecretaria2')->with('success', 'Productos importados exitosamente');
+        }
+    }

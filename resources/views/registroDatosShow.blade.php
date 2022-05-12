@@ -24,6 +24,25 @@
                         <input type="text" name="Cedula_Estudiante" id="cedula" value="{{$estudiantes->Cedula_Estudiante}}" placeholder="Ingresa la cedula" />
                         <input type="text" value="{{$estudiantes->Nombre_Estudiante}}" name="Nombre_Estudiante" id="nombres" placeholder="Los nombres" />
                         <input type="text"  value="{{$estudiantes->Apellido_Estudiante}}" name="Apellido_Estudiante" id="apellidos" placeholder="Los apellidos" />
+                        <input type="date" style="display: inline;
+                        width: 45%;
+                        margin: 10px;
+                        padding: 8px;
+                        border: none;
+                        border-radius: 8px;" value="{{$estudiantes->fechaNacimiento}}" name="fechaNacimiento" />
+                        <input type="number" style="display: inline;
+                        width: 45%;
+                        margin: 10px;
+                        padding: 8px;
+                        border: none;
+                        border-radius: 8px;" value="{{$estudiantes->edad}}" name="edad"  placeholder="La edad" />
+                        <input type="text"  value="{{$estudiantes->genero}}" name="genero"  placeholder="Genero" />
+                        <input type="text"  value="{{$estudiantes->convencional}}" name="convencional"  placeholder="El convencional" />
+                        <input type="text"  value="{{$estudiantes->etnia}}" name="etnia"  placeholder="Etnia" />
+                        <input type="text"  value="{{$estudiantes->nacionalidadEtnica}}" name="nacionalidadEtnica"  placeholder="Nacionalidad Etnica" />
+                        <input type="text"  value="{{$estudiantes->discapacidad}}" name="discapacidad"  placeholder="Discapacidad" />
+                        <input type="text"  value="{{$estudiantes->estadoCivil}}" name="estadoCivil"  placeholder="Estado Civil" />
+                        <input type="text"  value="{{$estudiantes->pais}}" name="pais"  placeholder="País" />
                         <input type="text" value="{{$estudiantes->Telefono_Estudiante}}" name="Telefono_Estudiante" id="telefono" placeholder="El número de telefono" />
                         <input type="text" value="{{$estudiantes->Nombre_CursoE}}" name="Nombre_CursoE" id="nombreCurso" placeholder="Nombre del curso" />
                         <input type="email" value="{{$estudiantes->Correo_InstitucionalE}}" name="Correo_InstitucionalE" id="emailIntitucional" placeholder="Email Institucional" />

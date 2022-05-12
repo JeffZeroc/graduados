@@ -23,6 +23,15 @@ class CreateEstudiantesTable extends Migration
             $table->string('Correo_InstitucionalE');
             $table->string('Correo_PersonalE');
             $table->string('Estado_Estudiante');
+            $table->date('fechaNacimiento');/*  */
+            $table->string('edad');
+            $table->string('genero');
+            $table->string('convencional');
+            $table->string('etnia');
+            $table->string('nacionalidadEtnica');
+            $table->string('discapacidad');
+            $table->string('estadoCivil');
+            $table->string('pais');/*  */
             $table->bigInteger('periodo_id')->unsigned();
             $table->bigInteger('carrera_id')->unsigned();
             $table->foreign('periodo_id')->references('id')->on('periodos')->onDelete('cascade')->onUpdate('cascade');

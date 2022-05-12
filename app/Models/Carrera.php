@@ -19,4 +19,15 @@ class Carrera extends Model
     {
         return $this->hasMany(Estudiante::class);
     }
+
+
+    protected $fillable = [
+        'CODIGO_EJECUTAR',
+        'Nombre_Carrera',
+        'Codigo_Carrera',
+        'Duracion_Carrera',
+        'Estado_Carrera',
+        'facultad_id',
+        
+    ];
 }

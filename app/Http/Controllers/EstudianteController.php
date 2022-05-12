@@ -165,6 +165,15 @@ class EstudianteController extends Controller
             'Cedula_Estudiante' => ['required','string','max:10','min:10'],
             'Nombre_Estudiante' => ['required', 'string', 'max:255'],
             'Apellido_Estudiante' => ['required', 'string', 'max:255'],
+            'fechaNacimiento' => ['required'],
+            'edad' => ['required', 'numeric'],
+            'genero' => ['required', 'string', 'max:1'],
+            'convencional' => ['required', 'string', 'max:10'],
+            'etnia' => ['required', 'string', 'max:255'],
+            'nacionalidadEtnica' => ['required', 'string', 'max:255'],
+            'discapacidad' => ['required', 'string', 'max:255'],
+            'estadoCivil' => ['required', 'string', 'max:255'],
+            'pais' => ['required', 'string', 'max:255'],
             'Telefono_Estudiante' => ['required','string','max:10','min:10'],
             'Nombre_CursoE' => ['required', 'string', 'max:255'],
             'Correo_InstitucionalE' => ['required', 'string', 'max:255'],
@@ -176,6 +185,14 @@ class EstudianteController extends Controller
 
         $mensaje = [
             'Cedula_Estudiante.required'=>'La cédula es requerida',
+            'fechaNacimiento.required'=>'La fecha es requerida',
+            'pais.required'=>'El pais es requerido',
+            'estadoCivil.required'=>'El estado civil es requerido',
+            'discapacidad.required'=>'La discapacidad es requerida',
+            'nacionalidadEtnica.required'=>'La nacionalidad etnica es requerida',
+            'etnia.required'=>'La etnia es requerida',
+            'convencional.required'=>'El convencional es requerido',
+            'genero.required'=>'El genero es requerido',
             'Cedula_Estudiante.max'=>'La cedula debe tener 10 digitos',
             'Cedula_Estudiante.min'=>'La cedula debe tener 10 digitos',
             'Nombre_Estudiante.required'=>'El nombre es requerido',
@@ -197,6 +214,15 @@ class EstudianteController extends Controller
         
         $todo = Estudiante::find($id);
         $todo->Cedula_Estudiante = $request->Cedula_Estudiante;
+        $todo->fechaNacimiento = $request->fechaNacimiento;
+        $todo->edad = $request->edad;
+        $todo->genero = $request->genero;
+        $todo->convencional = $request->convencional;
+        $todo->etnia = $request->etnia;
+        $todo->nacionalidadEtnica = $request->nacionalidadEtnica;
+        $todo->discapacidad = $request->discapacidad;
+        $todo->estadoCivil = $request->estadoCivil;
+        $todo->pais = $request->pais;
         $todo->Nombre_Estudiante = $request->Nombre_Estudiante;
         $todo->Apellido_Estudiante = $request->Apellido_Estudiante;
         $todo->Telefono_Estudiante = $request->Telefono_Estudiante;

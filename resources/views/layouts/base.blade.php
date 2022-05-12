@@ -44,7 +44,7 @@
         <div class="sidebar">
             <h4><a href="home" class='admin-elemento__panel' >ADMINISTRADOR</a></h4>
                 <ul id="navegacion">
-                    <p id="navbarDropdown" > User: {{ Auth::user()->name }} </p>
+                    <p id="navbarDropdown" > Usuario: {{ Auth::user()->name }} </p>
                     <div id="myDiv">
                         <li @if(request()->is('user-create')) class='active' @endif  class="enlaces" ><a href="{{ route('user.create') }} "><i class="fas fa-regular fa-user"></i>Crear usuario</a></li>
                         <li @if(request()->is('listaUsuarios')) class='active' @endif  class="enlaces"><a href="{{ route('inicio') }}"><i class="fas fa-regular fa-users"></i>Tipo de usuarios</a></li>

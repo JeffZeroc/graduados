@@ -41,6 +41,7 @@
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Correo</th>
                                         <th scope="col">Perfil</th>
+                                        <th scope="col">Estado</th>
                                         <th scope="col">Accion</th>
                                     </tr>
                                 </thead>
@@ -68,14 +69,46 @@
                                         </td>
                                         <td>
                                             <select name="rol" class="py-2" id="">
-                                                <option value="{{ $UsuariosAdmin->rol }}">{{ $UsuariosAdmin->rol }}</option>
+                                                <option value="{{ $UsuariosAdmin->rol }}">
+                                                @if ($UsuariosAdmin->rol == "secretaria")
+                                                    Colaborador
+                                                    @else
+                                                    {{ $UsuariosAdmin->rol }}
+                                                @endif
+                                                </option>
+                                                
                                                 @if ($UsuariosAdmin->rol == "secretaria")
                                                 <option value="administrador">administrador</option>
                                                 @else
-                                                <option value="secretaria">secretaria</option>
+                                                <option value="secretaria">colaborador</option>
                                                 @endif
                                             </select>
                                             
+                                        </td>
+                                        <td>
+                                            <select name="estado" class="py-2" id="">
+                                                <option  value="{{ $UsuariosAdmin->estado }}" @if ($UsuariosAdmin->estado == "Habilitado")
+                                                    selected
+                                                    @elseif ($UsuariosAdmin->estado == "Inhabilitado")
+                                                    selected
+                                                @endif>
+                                                @if ($UsuariosAdmin->estado == "Habilitado")
+                                                    Habilitado
+                                                    @else
+                                                    Inhabilitado
+                                                @endif
+                                                </option>
+                                                
+                                                @if ($UsuariosAdmin->estado == "Habilitado")
+                                                <option value="Inhabilitado">Inhabilitado</option>
+                                                @else
+                                                <option value="Habilitado">Habilitado</option>
+                                                @endif
+                                            </select>
+                                            {{-- <select name="estado" class="py-2" id="">
+                                                <option value="Habilitado">Habilitado</option>
+                                                <option value="Inhabilitado">Inhabilitado</option>
+                                            </select> --}}
                                         </td>
                                         <td>
                                         <div class="col-md-9 d-flex align-items-center">

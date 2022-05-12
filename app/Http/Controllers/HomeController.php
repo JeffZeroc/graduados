@@ -26,12 +26,19 @@ class HomeController extends Controller
 
       
 
-
+        
         $tipo = auth()->user()->rol;
-        if ( $tipo == 'secretaria' ) {
+        $estado = auth()->user()->estado;
+        if ( $tipo == 'secretaria' && $estado == 'Habilitado') {
             return Redirect("homeSecretaria")->with('mesaje','Secretaria');
-        }elseif( $tipo == 'administrador' ){
+        }elseif( $tipo == 'administrador' && $estado == 'Habilitado' ){
                 return Redirect('principal')->with('mesaje','Administrador');
+        }elseif( $tipo == 'secretaria' && $estado == 'Inhabilitado' ){
+            auth()->logout();
+            return Redirect('/home');
+        }elseif( $tipo == 'administrador' && $estado == 'Inhabilitado' ){
+            auth()->logout();
+            return Redirect('/home');
         }
         else{
             return Redirect('/home');

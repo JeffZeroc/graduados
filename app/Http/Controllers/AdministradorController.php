@@ -77,7 +77,8 @@ class AdministradorController extends Controller
         $campos = [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
-            'rol' => ['required', 'string']
+            'rol' => ['required', 'string'],
+            'estado' => ['required', 'string', 'max:255']
         ];
 
         $mensaje = [
@@ -94,6 +95,7 @@ class AdministradorController extends Controller
         $usuario->name = $request->name;
         $usuario->email = $request->email;
         $usuario->rol = $request->rol;
+        $usuario->estado = $request->estado;
         $usuario->save();
         $datos['UsuariosAdmin'] = User::paginate(10);
        /*  return view('listaUsuarios',$datos);   */

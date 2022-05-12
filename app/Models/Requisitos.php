@@ -13,6 +13,10 @@ class Requisitos extends Model
     {
         return $this->hasMany('App\Models\estudianteRequisito', 'requisito_id', 'id');
     }
+
+    protected $fillable = [
+        'nombreRequisito',
+    ];
     /* public function Estudiantes() 
     {
         return $this->belongsToMany(Estudiante::class,'estudiante_requisito','requisito_id','estudiante_id');

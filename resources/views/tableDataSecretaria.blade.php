@@ -38,7 +38,17 @@
     </style>
     <div class=" container2">
                     <div class="row">
+                        @if (isset($errors) && $errors->any())
+                        <div class="alert alert-danger" role="alert">
+                            @foreach ($errors->all() as $error)
+                            {{$error}}
+                            @endforeach
+                        </div>
+                        @endif
                             <div class="col-lg-12">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#importar">
+                                    Importar Excel
+                                </button>
                                 <div class="table-responsive">        
                                     <table id="example" class="table table-striped table-bordered corredor" cellspacing="0" width="100%">
                                     <thead>
@@ -121,6 +131,15 @@
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Nombres: </span> {{$re->Nombre_Estudiante}} {{$re->Apellido_Estudiante}}</li>
                                                        
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Telefono: </span> {{$re->Telefono_Estudiante}}</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">Fecha Nacimiento: </span> {{$re->fechaNacimiento}}</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">Edad: </span> {{$re->edad}}</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">Género: </span> {{$re->genero}}</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">Convencional: </span> {{$re->convencional}}</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">Etnia: </span> {{$re->etnia}}</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">Nacionalidad Etnia: </span> {{$re->nacionalidadEtnica}}</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">Discapacidad: </span> {{$re->discapacidad}}</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">Estado Civil: </span> {{$re->estadoCivil}}</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">País: </span> {{$re->pais}}</li>
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Carrera: </span> {{$re->Carrera->Nombre_Carrera}}</li>
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Curso: </span> {{$re->Nombre_CursoE}}</li>
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Facultad: </span> @foreach ($facultades as $facultade)
@@ -166,6 +185,26 @@
                         {{$requisitos->nombreRequisito}} <br>
                     @endforeach --}}
                     
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="importar" tabindex="-1" aria-labelledby="importarLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="importarLabel">Importar Estudiantes</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                        <form action="{{route('alumnos.import')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+    
+                            <input type="file" name="import_file" />
+    
+                            <button class="btn btn-primary" type="submit">Importar</button>
+                        </form>
+            </div>
+        </div>
+        </div>
     </div>
 @endsection
 
