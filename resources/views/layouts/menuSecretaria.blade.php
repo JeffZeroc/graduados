@@ -37,7 +37,7 @@
                 <div class="userName">
                     <p>{{ Auth::user()->name }}</p>
                 </div>   
-                <li @if(request()->is('registroDatos')) class='active' @endif ><a href="{{route('registrodatos') }}" class='fas-subrayado' ><i class="fas fa-solid fa-address-card "></i>Registro</a></li>
+                {{-- <li @if(request()->is('registroDatos')) class='active' @endif ><a href="{{route('registrodatos') }}" class='fas-subrayado' ><i class="fas fa-solid fa-address-card "></i>Registro</a></li> --}}
                 <li @if(request()->is('ListaUsuariosEstudiantes')) class='active' @endif ><a href="{{ route('tableDataSecretaria2') }}" class='fas-subrayado' ><i class="fas fa-search "></i>Estudiante</a></li>
                 <li>
                     <a class='fas-subrayado' href="{{ route('logout') }}"
