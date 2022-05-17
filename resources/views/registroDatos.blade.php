@@ -20,13 +20,13 @@
                         <p>ESTUDIANTE</p>
  
                             <!-- ESTOS DATOS SE GUARDAN EN LA BD TABAL Estudiante -->
-                            <input type="text" name="Cedula_Estudiante" id="cedula" value="{{old('Cedula_Estudiante')}}" placeholder="Ingresa la cedula" />
-                            <input type="text" value="{{old('Nombre_Estudiante')}}" name="Nombre_Estudiante" id="nombres" placeholder="Los nombres" />
-                            <input type="text"  value="{{old('Apellido_Estudiante')}}" name="Apellido_Estudiante" id="apellidos" placeholder="Los apellidos" />
-                            <input type="text" value="{{old('Telefono_Estudiante')}}" name="Telefono_Estudiante" id="telefono" placeholder="El número de telefono" />
-                            <input type="text" value="{{old('Nombre_CursoE')}}" name="Nombre_CursoE" id="nombreCurso" placeholder="Paralelo" />
-                            <input type="email" value="{{old('Correo_InstitucionalE')}}" name="Correo_InstitucionalE" id="emailIntitucional" placeholder="Email Institucional" />
-                            <input type="email" value="{{old('Correo_PersonalE')}}" name="Correo_PersonalE" id="emailPersonal" placeholder="Email Personal" />
+                            <input type="text" name="cedula" id="cedula" value="{{old('cedula')}}" placeholder="Ingresa la cedula" />
+                            <input type="text" value="{{old('nombre')}}" name="nombre" id="nombres" placeholder="Los nombres" />
+                            <input type="text"  value="{{old('apellido_paterno')}}" name="apellido_paterno" id="apellidos" placeholder="Los apellidos" />
+                            <input type="text" value="{{old('telefono')}}" name="telefono" id="telefono" placeholder="El número de telefono" />
+                            <input type="text" value="{{old('curso')}}" name="curso" id="nombreCurso" placeholder="Paralelo" />
+                            <input type="email" value="{{old('correo_institucional')}}" name="correo_institucional" id="emailIntitucional" placeholder="Email Institucional" />
+                            <input type="email" value="{{old('correo_personal')}}" name="correo_personal" id="emailPersonal" placeholder="Email Personal" />
                        
                     </div>
 
@@ -64,9 +64,9 @@
                                 <!-- ESTOS DATOS SE GUARDAN EN LA BD TABLA Requisitos -->
                                 @foreach ($requisitos as $requisito)
                                 <br>
-                                <label for="ingles">Aprobación de {{$requisito->nombreRequisito}}: </label>
+                                <label >Aprobación de {{$requisito->nombreRequisito}}: </label>
                                 <br>
-                                <select name="requisito_id[]" id="ingles" >
+                                <select name="requisito_id[]"  >
                                     <option value="1">Si</option>
                                     <option value="0">No</option>
                                     {{-- <option value="0">No</option> --}}

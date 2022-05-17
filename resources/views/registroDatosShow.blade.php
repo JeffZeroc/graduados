@@ -21,15 +21,15 @@
                     <div class='container-estudiante'>
                         <p>Estudiante</p>
                         <!-- ESTOS DATOS SE GUARDAN EN LA BD TABAL Estudiante -->
-                        <input type="text" name="Cedula_Estudiante" id="cedula" value="{{$estudiantes->Cedula_Estudiante}}" placeholder="Ingresa la cedula" />
-                        <input type="text" value="{{$estudiantes->Nombre_Estudiante}}" name="Nombre_Estudiante" id="nombres" placeholder="Los nombres" />
-                        <input type="text"  value="{{$estudiantes->Apellido_Estudiante}}" name="Apellido_Estudiante" id="apellidos" placeholder="Los apellidos" />
+                        <input type="text" name="Cedula_Estudiante" id="cedula" value="{{$estudiantes->cedula}}" placeholder="Ingresa la cedula" />
+                        <input type="text" value="{{$estudiantes->nombre}}" name="nombre" id="nombres" placeholder="Los nombres" />
+                        <input type="text"  value="{{$estudiantes->apellido_paterno}} {{$estudiantes->apellido_materno}}" name="apellido_paterno" id="apellidos" placeholder="Los apellidos" />
                         <input type="date" style="display: inline;
                         width: 45%;
                         margin: 10px;
                         padding: 8px;
                         border: none;
-                        border-radius: 8px;" value="{{$estudiantes->fechaNacimiento}}" name="fechaNacimiento" />
+                        border-radius: 8px;" value="{{$estudiantes->fecha_nacimiento}}" name="fecha_nacimiento" />
                         <input type="number" style="display: inline;
                         width: 45%;
                         margin: 10px;
@@ -39,14 +39,14 @@
                         <input type="text"  value="{{$estudiantes->genero}}" name="genero"  placeholder="Genero" />
                         <input type="text"  value="{{$estudiantes->convencional}}" name="convencional"  placeholder="El convencional" />
                         <input type="text"  value="{{$estudiantes->etnia}}" name="etnia"  placeholder="Etnia" />
-                        <input type="text"  value="{{$estudiantes->nacionalidadEtnica}}" name="nacionalidadEtnica"  placeholder="Nacionalidad Etnica" />
+                        <input type="text"  value="{{$estudiantes->nacionalidad_etnica}}" name="nacionalidad_etnica"  placeholder="Nacionalidad Etnica" />
                         <input type="text"  value="{{$estudiantes->discapacidad}}" name="discapacidad"  placeholder="Discapacidad" />
-                        <input type="text"  value="{{$estudiantes->estadoCivil}}" name="estadoCivil"  placeholder="Estado Civil" />
+                        <input type="text"  value="{{$estudiantes->estado_civil}}" name="estado_civil"  placeholder="Estado Civil" />
                         <input type="text"  value="{{$estudiantes->pais}}" name="pais"  placeholder="País" />
-                        <input type="text" value="{{$estudiantes->Telefono_Estudiante}}" name="Telefono_Estudiante" id="telefono" placeholder="El número de telefono" />
-                        <input type="text" value="{{$estudiantes->Nombre_CursoE}}" name="Nombre_CursoE" id="nombreCurso" placeholder="Nombre del curso" />
-                        <input type="email" value="{{$estudiantes->Correo_InstitucionalE}}" name="Correo_InstitucionalE" id="emailIntitucional" placeholder="Email Institucional" />
-                        <input type="email" value="{{$estudiantes->Correo_PersonalE}}" name="Correo_PersonalE" id="emailPersonal" placeholder="Email Personal" />
+                        <input type="text" value="{{$estudiantes->telefono}}" name="telefono" id="telefono" placeholder="El número de telefono" />
+                        <input type="text" value="{{$estudiantes->curso}}" name="curso" id="nombreCurso" placeholder="Nombre del curso" />
+                        <input type="email" value="{{$estudiantes->correo_institucional}}" name="correo_institucional" id="emailIntitucional" placeholder="Email Institucional" />
+                        <input type="email" value="{{$estudiantes->correo_personal}}" name="correo_personal" id="emailPersonal" placeholder="Email Personal" />
                         
                     </div>
                         <div class="row">
@@ -63,10 +63,10 @@
                           <div class="col-sm">
                             <div class='container-carrera'>
                                 <p>Estado:</p>
-                                <select name="Estado_Estudiante" id="estado">
-                                    <option value="Graduado" @if ($estudiantes->Estado_Estudiante == "Graduado")selected="selected" @endif>Graduado</option>
-                                    <option value="Egresado" @if ($estudiantes->Estado_Estudiante == "Egresado")selected="selected" @endif>Egresado</option>
-                                    <option value="Proceso" @if ($estudiantes->Estado_Estudiante == "Proceso")selected="selected" @endif>Proceso</option>
+                                <select name="estado" id="estado">
+                                    <option value="Graduado" @if ($estudiantes->estado == "Graduado")selected="selected" @endif>Graduado</option>
+                                    <option value="Egresado" @if ($estudiantes->estado == "Egresado")selected="selected" @endif>Egresado</option>
+                                    <option value="Proceso" @if ($estudiantes->estado == "Proceso")selected="selected" @endif>Proceso</option>
                                 </select>
                             </div>  
                           </div>

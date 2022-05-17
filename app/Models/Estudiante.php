@@ -25,16 +25,26 @@ class Estudiante extends Model
     }
 
     protected $fillable = [
-        'Cedula_Estudiante',
-        'Nombre_Estudiante',
-        'Apellido_Estudiante',
-        'Telefono_Estudiante',
-        'Nombre_CursoE',
-        'Correo_InstitucionalE',
-        'Correo_PersonalE',
-        'Estado_Estudiante',
-        'periodo_id',
-        'carrera_id',
+        'cedula' ,
+            'nombre',
+            'apellido_paterno' ,
+            'apellido_materno' ,
+            'fecha_nacimiento' ,
+            'edad' ,
+            'genero' ,
+            'convencional',
+            'etnia',
+            'nacionalidad_etnica' ,
+            'discapacidad' ,
+            'estado_civil',
+            'pais',
+            'telefono',
+            'curso',
+            'correo_institucional',
+            'correo_personal',
+            'estado' ,
+            'periodo_id',
+            'carrera_id',
     ];
 
 }

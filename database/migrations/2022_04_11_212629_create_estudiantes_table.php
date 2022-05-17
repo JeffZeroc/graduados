@@ -15,22 +15,23 @@ class CreateEstudiantesTable extends Migration
     {
         Schema::create('estudiantes', function (Blueprint $table) {
             $table->id();
-            $table->string('Cedula_Estudiante');
-            $table->string('Nombre_Estudiante');
-            $table->string('Apellido_Estudiante');
-            $table->string('Telefono_Estudiante');
-            $table->string('Nombre_CursoE');
-            $table->string('Correo_InstitucionalE');
-            $table->string('Correo_PersonalE');
-            $table->string('Estado_Estudiante');
-            $table->date('fechaNacimiento');/*  */
-            $table->string('edad');
+            $table->string('cedula');
+            $table->string('nombre');
+            $table->string('apellido_paterno');
+            $table->string('apellido_materno');
+            $table->string('telefono')->nullable();
+            $table->string('curso');
+            $table->string('correo_institucional')->nullable();
+            $table->string('Correo_personal')->nullable();
+            $table->string('estado');
+            $table->date('fecha_nacimiento')->nullable();/*  */
+            $table->string('edad')->nullable();
             $table->string('genero');
-            $table->string('convencional');
+            $table->string('convencional')->nullable();
             $table->string('etnia');
-            $table->string('nacionalidadEtnica');
-            $table->string('discapacidad');
-            $table->string('estadoCivil');
+            $table->string('nacionalidad_etnica');
+            $table->string('discapacidad')->nullable();
+            $table->string('estado_civil')->nullable();
             $table->string('pais');/*  */
             $table->bigInteger('periodo_id')->unsigned();
             $table->bigInteger('carrera_id')->unsigned();

@@ -63,7 +63,7 @@ class requisitoController extends Controller
     public function show($id)
     {
         $Requerimientos = Requisitos::find($id);
-        return view('requisitosUsuariosSHOW', ['Requerimientos' => $Requerimientos]); 
+        return view('requisitosUsuariosShow', ['Requerimientos' => $Requerimientos]); 
     }
 
     /**

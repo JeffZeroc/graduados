@@ -35,17 +35,30 @@ class EstudiantesImport implements ToModel, WithHeadingRow, WithBatchInserts, Wi
     public function model(array $row)
     {
         $estudiante = new Estudiante();
+        $estudiante->cedula = $row['cedula'];
+        $estudiante->fecha_nacimiento = $row['fecha_nacimiento'];
+        $estudiante->edad = $row['edad'];
+        $estudiante->genero = $row['genero'];
+        $estudiante->convencional = $row['convencional'];
+        $estudiante->etnia = $row['etnia'];
+        $estudiante->nacionalidad_etnica = $row['nacionalidad_etnica'];
+        $estudiante->discapacidad = $row['discapacidad'];
+        $estudiante->estado_civil = $row['estado_civil'];
+        $estudiante->pais = $row['pais'];
+        //Agregando el nombre y apellido
+        $nombrecompleto = $row['nombre'];
+        $arrayNombre = explode(' ', $nombrecompleto,3);
+        $estudiante->apellido_paterno =$arrayNombre[0];
+        $estudiante->apellido_materno =$arrayNombre[1];
+        $estudiante->nombre = $arrayNombre[2];
+        $estudiante->telefono = $row['celular'];
         
-        $estudiante->Nombre_Estudiante = $row['nombres'];
-        $estudiante->Apellido_Estudiante = $row['apellidos'];
-        $estudiante->Cedula_Estudiante = $row['cedula'];
-        $estudiante->Telefono_Estudiante = $row['telefono'];
-        $estudiante->Nombre_CursoE = $row['curso'];
-        $estudiante->Correo_InstitucionalE = $row['correo_institucional'];
-        $estudiante->Correo_PersonalE = $row['correo_personal'];
-        $estudiante->Estado_Estudiante = $row['estado'];
+        $estudiante->curso = $row['curso'];
+        $estudiante->correo_institucional = $row['correo_institucional'];
+        $estudiante->correo_personal = $row['correo_personal'];
+        $estudiante->carrera_id = $this->carreras[$row['carrera']];  
+        $estudiante->estado = 'Egresado';
         $estudiante->periodo_id = $this->periodos[$row['periodo']];
-        $estudiante->carrera_id = $this->carreras[$row['carrera']];    
         $estudiante->save();
         
         $max = Requisitos::count();
@@ -73,19 +86,19 @@ class EstudiantesImport implements ToModel, WithHeadingRow, WithBatchInserts, Wi
 
     public function batchSize(): int
     {
-        return 50;
+        return 500;
     }
 
     public function chunkSize(): int
     {
-        return 50;
+        return 500;
     }
 
     public function rules(): array
     {
         return [
             //Unica Funciona
-            //'cedula' => 'string|min:10|max:10|unique:estudiantes',
+            'cedula' => 'string|min:10|max:10|unique:estudiantes',
 
             // 'cedula' => 'string|min:10|max:10',
             // '*.Cedula_Estudiante' => 'unique:estudiantes',

@@ -57,54 +57,85 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-
         $campos = [
-            'Cedula_Estudiante' => ['required','string','max:10','min:10'],
-            'Nombre_Estudiante' => ['required', 'string', 'max:255'],
-            'Apellido_Estudiante' => ['required', 'string', 'max:255'],
-            'Telefono_Estudiante' => ['required','string','max:10','min:10'],
-            'Nombre_CursoE' => ['required', 'string', 'max:255'],
-            'Correo_InstitucionalE' => ['required', 'unique:estudiantes,Correo_InstitucionalE', 'string', 'max:255'],
-            'Correo_PersonalE' => ['required','unique:estudiantes,Correo_PersonalE', 'string', 'max:255'],
+            'cedula' => ['required','string','max:10','min:10'],
+            'nombre'=> ['required', 'string', 'max:255'],
+            'apellido_paterno' => ['required', 'string', 'max:255'],
+            'apellido_materno' => ['required', 'string', 'max:255'],
+            'fecha_nacimiento' => ['required'],
+            'edad' => ['required', 'numeric'],
+            'genero' => ['required', 'string', 'max:1'],
+            'convencional'=> ['required', 'string', 'max:10'],
+            'etnia' => ['required', 'string', 'max:255'],
+            'nacionalidad_etnica' => ['required', 'string', 'max:255'],
+            'discapacidad' => ['required', 'string', 'max:255'],
+            'estado_civil' => ['required', 'string', 'max:255'],
+            'pais' => ['required', 'string', 'max:255'],
+            'telefono' => ['required','string','max:10','min:10'],
+            'curso' => ['required', 'string', 'max:255'],
+            'correo_institucional' => ['required', 'unique:estudiantes,Correo_InstitucionalE', 'string', 'max:255'],
+            'correo_personal' => ['required','unique:estudiantes,Correo_PersonalE', 'string', 'max:255'],
+            'estado' => ['required', 'string', 'max:255'],
+            'periodo_id'  => ['required','numeric'],
             'carrera_id' => ['required','numeric'],
-            'Estado_Estudiante' => ['required', 'string', 'max:255'],
-            'periodo_id' => ['required','numeric']
+            
         ];
 
         $mensaje = [
-            'Cedula_Estudiante.required'=>'La cédula es requerida',
-            'Cedula_Estudiante.max'=>'La cedula debe tener 10 digitos',
-            'Cedula_Estudiante.min'=>'La cedula debe tener 10 digitos',
-            'Nombre_Estudiante.required'=>'El nombre es requerido',
-            'Apellido_Estudiante.required'=>'El apellido es requerido',
-            'Telefono_Estudiante.required'=>'El teléfono es un campo requerido',
-            'Telefono_Estudiante.max'=>'El teléfono debe tener 10 dígitos',
-            'Telefono_Estudiante.min'=>'El teléfono debe tener 10 dígitos',
-            'Nombre_CursoE.required'=>'El nombre del curso es un campo requerido',
-            'Correo_InstitucionalE.required'=>'El correo institucional es un campo requerido',
-            'Correo_InstitucionalE.unique'=>'El correo institucional debe ser unico',
-            'Correo_PersonalE.required'=>'El correo personal es un campo requerido',
-            'Correo_PersonalE.unique'=>'El correo personal debe ser unico',
+            'cedula.required'=>'La cédula es requerida',
+            'fecha_nacimiento.required'=>'La fecha es requerida',
+            'pais.required'=>'El pais es requerido',
+            'estado_civil.required'=>'El estado civil es requerido',
+            'discapacidad.required'=>'La discapacidad es requerida',
+            'nacionalidad_etnica.required'=>'La nacionalidad etnica es requerida',
+            'etnia.required'=>'La etnia es requerida',
+            'convencional.required'=>'El convencional es requerido',
+            'genero.required'=>'El genero es requerido',
+            'cedula.max'=>'La cedula debe tener 10 digitos',
+            'cedula.min'=>'La cedula debe tener 10 digitos',
+            'nombre.required'=>'El nombre es requerido',
+            'apellido_paterno.required'=>'El apellido paterno es requerido',
+            'apellido_materno.required'=>'El apellido materno es requerido',
+            'telefono.required'=>'El teléfono es un campo requerido',
+            'telefono.max'=>'El teléfono debe tener 10 dígitos',
+            'telefono.min'=>'El teléfono debe tener 10 dígitos',
+            'curso.required'=>'El nombre del curso es un campo requerido',
+            'correo_institucional.required'=>'El correo institucional es un campo requerido',
+            'oorreo_personal.required'=>'El correo personal es un campo requerido',
             'carrera_id.required'=>'La carrera es un campo requerido',
-            'Estado_Estudiante.required'=>'El estado es un campo requerido',
+            'estado.required'=>'El estado es un campo requerido',
             'periodo_id.required'=>'El periodo academico es un campo requerido',
+            'correo_institucional.unique'=>'El correo institucional debe ser unico',
+            'oorreo_personal.unique'=>'El correo personal debe ser unico',
         ];
+        
 
         $this->validate($request,$campos,$mensaje);
 
         $requisitos = Requisitos::all();
         
         $todo = new Estudiante;
-        $todo->Cedula_Estudiante = $request->Cedula_Estudiante;
-        $todo->Nombre_Estudiante = $request->Nombre_Estudiante;
-        $todo->Apellido_Estudiante = $request->Apellido_Estudiante;
-        $todo->Telefono_Estudiante = $request->Telefono_Estudiante;
-        $todo->Nombre_CursoE = $request->Nombre_CursoE;
-        $todo->Correo_InstitucionalE = $request->Correo_InstitucionalE;
-        $todo->Correo_PersonalE = $request->Correo_PersonalE;
+        $todo->cedula = $request->cedula;
+        //nombre
+        $arrayNombre = explode(' ', $request->apellido_paterno);
+        $todo->apellido_paterno =$arrayNombre[0];
+        $todo->apellido_materno =$arrayNombre[1];
+        $todo->nombre = $request->nombre;
+        $todo->telefono = $request->telefono;
+        $todo->curso = $request->curso;
+        $todo->correo_institucional = $request->correo_institucional;
+        $todo->correo_personal = $request->correo_personal;
         $todo->carrera_id = $request->carrera_id;
-        $todo->Estado_Estudiante = $request->Estado_Estudiante;
+        $todo->estado = $request->estado;
         $todo->periodo_id = $request->periodo_id;
+        $todo->edad = $request->edad;
+        $todo->genero = $request->genero;
+        $todo->convencional = $request->convencional;
+        $todo->etnia = $request->etnia;
+        $todo->nacionalidad_etnica = $request->nacionalidad_etnica;
+        $todo->discapacidad = $request->discapacidad;
+        $todo->estado_civil = $request->estado_civil;
+        $todo->pais = $request->pais;
         $todo->save();
 
         $idAreaRecienGuardada = $todo->id;
@@ -162,49 +193,52 @@ class EstudianteController extends Controller
     public function update(Request $request, $id)
     {
         $campos = [
-            'Cedula_Estudiante' => ['required','string','max:10','min:10'],
-            'Nombre_Estudiante' => ['required', 'string', 'max:255'],
-            'Apellido_Estudiante' => ['required', 'string', 'max:255'],
-            'fechaNacimiento' => ['required'],
+            'cedula' => ['required','string','max:10','min:10'],
+            'nombre'=> ['required', 'string', 'max:255'],
+            'apellido_paterno' => ['required', 'string', 'max:255'],
+            'apellido_materno' => ['required', 'string', 'max:255'],
+            'fecha_nacimiento' => ['required'],
             'edad' => ['required', 'numeric'],
             'genero' => ['required', 'string', 'max:1'],
-            'convencional' => ['required', 'string', 'max:10'],
+            'convencional'=> ['required', 'string', 'max:10'],
             'etnia' => ['required', 'string', 'max:255'],
-            'nacionalidadEtnica' => ['required', 'string', 'max:255'],
+            'nacionalidad_etnica' => ['required', 'string', 'max:255'],
             'discapacidad' => ['required', 'string', 'max:255'],
-            'estadoCivil' => ['required', 'string', 'max:255'],
+            'estado_civil' => ['required', 'string', 'max:255'],
             'pais' => ['required', 'string', 'max:255'],
-            'Telefono_Estudiante' => ['required','string','max:10','min:10'],
-            'Nombre_CursoE' => ['required', 'string', 'max:255'],
-            'Correo_InstitucionalE' => ['required', 'string', 'max:255'],
-            'Correo_PersonalE' => ['required', 'string', 'max:255'],
+            'telefono' => ['required','string','max:10','min:10'],
+            'curso' => ['required', 'string', 'max:255'],
+            'correo_institucional' => ['required', 'string', 'max:255'],
+            'correo_personal' => ['required', 'string', 'max:255'],
+            'estado' => ['required', 'string', 'max:255'],
+            'periodo_id'  => ['required','numeric'],
             'carrera_id' => ['required','numeric'],
-            'Estado_Estudiante' => ['required', 'string', 'max:255'],
-            'periodo_id' => ['required','numeric']
+            
         ];
 
         $mensaje = [
-            'Cedula_Estudiante.required'=>'La cédula es requerida',
-            'fechaNacimiento.required'=>'La fecha es requerida',
+            'cedula.required'=>'La cédula es requerida',
+            'fecha_nacimiento.required'=>'La fecha es requerida',
             'pais.required'=>'El pais es requerido',
-            'estadoCivil.required'=>'El estado civil es requerido',
+            'estado_civil.required'=>'El estado civil es requerido',
             'discapacidad.required'=>'La discapacidad es requerida',
-            'nacionalidadEtnica.required'=>'La nacionalidad etnica es requerida',
+            'nacionalidad_etnica.required'=>'La nacionalidad etnica es requerida',
             'etnia.required'=>'La etnia es requerida',
             'convencional.required'=>'El convencional es requerido',
             'genero.required'=>'El genero es requerido',
-            'Cedula_Estudiante.max'=>'La cedula debe tener 10 digitos',
-            'Cedula_Estudiante.min'=>'La cedula debe tener 10 digitos',
-            'Nombre_Estudiante.required'=>'El nombre es requerido',
-            'Apellido_Estudiante.required'=>'El apellido es requerido',
-            'Telefono_Estudiante.required'=>'El teléfono es un campo requerido',
-            'Telefono_Estudiante.max'=>'El teléfono debe tener 10 dígitos',
-            'Telefono_Estudiante.min'=>'El teléfono debe tener 10 dígitos',
-            'Nombre_CursoE.required'=>'El nombre del curso es un campo requerido',
-            'Correo_InstitucionalE.required'=>'El correo institucional es un campo requerido',
-            'Correo_PersonalE.required'=>'El correo personal es un campo requerido',
+            'cedula.max'=>'La cedula debe tener 10 digitos',
+            'cedula.min'=>'La cedula debe tener 10 digitos',
+            'nombre.required'=>'El nombre es requerido',
+            'apellido_paterno.required'=>'El apellido paterno es requerido',
+            'apellido_materno.required'=>'El apellido materno es requerido',
+            'telefono.required'=>'El teléfono es un campo requerido',
+            'telefono.max'=>'El teléfono debe tener 10 dígitos',
+            'telefono.min'=>'El teléfono debe tener 10 dígitos',
+            'curso.required'=>'El nombre del curso es un campo requerido',
+            'correo_institucional.required'=>'El correo institucional es un campo requerido',
+            'oorreo_personal.required'=>'El correo personal es un campo requerido',
             'carrera_id.required'=>'La carrera es un campo requerido',
-            'Estado_Estudiante.required'=>'El estado es un campo requerido',
+            'estado.required'=>'El estado es un campo requerido',
             'periodo_id.required'=>'El periodo academico es un campo requerido',
         ];
 
@@ -213,25 +247,27 @@ class EstudianteController extends Controller
         $requisitos = Requisitos::all();
         
         $todo = Estudiante::find($id);
-        $todo->Cedula_Estudiante = $request->Cedula_Estudiante;
-        $todo->fechaNacimiento = $request->fechaNacimiento;
+        $todo->cedula = $request->cedula;
+        //nombre
+        $arrayNombre = explode(' ', $request->apellido_paterno);
+        $todo->apellido_paterno =$arrayNombre[0];
+        $todo->apellido_materno =$arrayNombre[1];
+        $todo->nombre = $request->nombre;
+        $todo->telefono = $request->telefono;
+        $todo->curso = $request->curso;
+        $todo->correo_institucional = $request->correo_institucional;
+        $todo->correo_personal = $request->correo_personal;
+        $todo->carrera_id = $request->carrera_id;
+        $todo->estado = $request->estado;
+        $todo->periodo_id = $request->periodo_id;
         $todo->edad = $request->edad;
         $todo->genero = $request->genero;
         $todo->convencional = $request->convencional;
         $todo->etnia = $request->etnia;
-        $todo->nacionalidadEtnica = $request->nacionalidadEtnica;
+        $todo->nacionalidad_etnica = $request->nacionalidad_etnica;
         $todo->discapacidad = $request->discapacidad;
-        $todo->estadoCivil = $request->estadoCivil;
+        $todo->estado_civil = $request->estado_civil;
         $todo->pais = $request->pais;
-        $todo->Nombre_Estudiante = $request->Nombre_Estudiante;
-        $todo->Apellido_Estudiante = $request->Apellido_Estudiante;
-        $todo->Telefono_Estudiante = $request->Telefono_Estudiante;
-        $todo->Nombre_CursoE = $request->Nombre_CursoE;
-        $todo->Correo_InstitucionalE = $request->Correo_InstitucionalE;
-        $todo->Correo_PersonalE = $request->Correo_PersonalE;
-        $todo->carrera_id = $request->carrera_id;
-        $todo->Estado_Estudiante = $request->Estado_Estudiante;
-        $todo->periodo_id = $request->periodo_id;
         $todo->save();
 
         $todo2 = estudianteRequisito::all();
