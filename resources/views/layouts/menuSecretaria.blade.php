@@ -53,7 +53,7 @@
             </ul>
         </div>
         <div class="main_content">
-            <div class="header">SISTEMA DE CONTROL DE INFORMACION A ESTUDIANTES EN PROCESO DE GRADUACION</div>
+            <div class="header">SISTEMA DE CONTROL A ESTUDIANTES GRADUADOS</div>
                 <div class="table-filtrar">
                     <!--********  AKI VAN  LOS SCRIPT PARA QUE FUNCIONE LA DATATABLE ***********************-->
                         <!-- jQuery, Popper.js, Bootstrap JS -->

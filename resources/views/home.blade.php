@@ -21,7 +21,7 @@
     </style>
           
     <div class='contenedor-bienvenido'>
-        <h3>SISTEMA DE CONTROL DE LA INFORMACIÓN DE LOS ESTUDIANTES EN PROCESO DE GRADUACIÓN SEDE SANTO DOMINGO. </h3>
+        <h3>SISTEMA DE CONTROL A ESTUDIANTES GRADUADOS </h3>
         <img src="{{URL::asset('img/bienvenidos.jpg')}}" alt='img-Bienvenidos'  class='imgSombra'>
     </div>
 @endsection
