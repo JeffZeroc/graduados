@@ -11,10 +11,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    
 
     /**
      * Show the application dashboard.
@@ -24,21 +21,12 @@ class HomeController extends Controller
     public function index()
     {
 
-      
-
-        
         $tipo = auth()->user()->rol;
         $estado = auth()->user()->estado;
         if ( $tipo == 'secretaria' && $estado == 'Habilitado') {
             return Redirect("homeSecretaria")->with('mesaje','Secretaria');
         }elseif( $tipo == 'administrador' && $estado == 'Habilitado' ){
                 return Redirect('principal')->with('mesaje','Administrador');
-        }elseif( $tipo == 'secretaria' && $estado == 'Inhabilitado' ){
-            auth()->logout();
-            return Redirect('/home');
-        }elseif( $tipo == 'administrador' && $estado == 'Inhabilitado' ){
-            auth()->logout();
-            return Redirect('/home');
         }
         else{
             return Redirect('/home');
