@@ -70,17 +70,17 @@
                                         <td>
                                             <select name="rol" class="py-2" id="">
                                                 <option value="{{ $UsuariosAdmin->rol }}">
-                                                @if ($UsuariosAdmin->rol == "secretaria")
+                                                @if ($UsuariosAdmin->rol == "Colaborador")
                                                     Colaborador
                                                     @else
                                                     {{ $UsuariosAdmin->rol }}
                                                 @endif
                                                 </option>
                                                 
-                                                @if ($UsuariosAdmin->rol == "secretaria")
-                                                <option value="administrador">administrador</option>
+                                                @if ($UsuariosAdmin->rol == "Colaborador")
+                                                <option value="Administrador">Administrador</option>
                                                 @else
-                                                <option value="secretaria">colaborador</option>
+                                                <option value="Colaborador">Colaborador</option>
                                                 @endif
                                             </select>
                                             

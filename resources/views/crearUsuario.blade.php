@@ -47,8 +47,8 @@
                                             <label for="text" class="col-md-4 col-form-label text-md-end">{{ __('Selecciona tu perfil') }}</label>
                                             <div class="col-md-6">
                                                 <select class="form-select  mb-3" name="rol" >
-                                                    <option value="secretaria">Colaborador</option>
-                                                    <option value="administrador">Administrador</option>
+                                                    <option value="Colaborador">Colaborador</option>
+                                                    <option value="Administrador">Administrador</option>
                                                 </select>  
                                             </div>
                                         <div>

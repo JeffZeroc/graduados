@@ -48,7 +48,7 @@
                                     <tr>
                                         <td>{{ $admins->name }}</td>
                                         <td>{{ $admins->email }}</td>
-                                        <td>@if ($admins->rol == "secretaria")
+                                        <td>@if ($admins->rol == "Colaborador")
                                             Colaborador
                                             @else
                                             {{ $admins->rol }}
