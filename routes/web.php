@@ -27,35 +27,6 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Auth::routes();
 
 
-// route::get('restablecerPassword',[App\Http\Controllers\CarreraController::class,'index3'])->name('restablecercontraAdmin');
-
-/* route::get('tableDataSecretaria',[App\Http\Controllers\CarreraController::class,'index5'])->name('tableDataSecretaria2');
- */
-
-/* Route::get('listaUsuarios', function () {
-    return view('listaUsuarios');
-}); */
-/* Route::get('restablecerPassword', function () {
-    return view('restablecerPassword');
-}); */
-
-/* Route::get('listagraduados', function () {
-    return view('tableDataSecretaria');
-}); */
-
-/* Route::redirect('/','/crearUsuario');
-Route::view('/crearUsuarios', 'crearUsuarios')->name('crearUsuarios');
-
-Route::redirect('/','/listaUsuario');
-Route::view('/listaUsuarios', 'listaUsuarios')->name('listaUsuarios');
-
-Route::redirect('/','/restablecerPassword');
-Route::view('/restablecerPassword', 'restablecerPassword')->name('restablecerPassword'); */
-
-/********  Vistas del panel de SECRETARIA ****************/
-
-
-
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('homeSecretaria', function () {

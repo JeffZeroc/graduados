@@ -29,6 +29,7 @@ class HomeController extends Controller
                 return Redirect('principal')->with('mesaje','Administrador');
         }
         else{
+            auth()->logout();
             return Redirect('/');
         }
 

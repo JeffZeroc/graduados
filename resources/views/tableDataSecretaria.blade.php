@@ -63,6 +63,7 @@
                                             <th>Estado</th> --}}
                                             <th>Periodo</th>
                                             <th>Carrera</th>
+                                            <th>Nivel</th>
                                             <th>Requisitos</th>
                                             <th>Estado</th>
                                             <th class="accion"></th>
@@ -76,6 +77,7 @@
                                             <td>{{$re->apellido_paterno}}  {{$re->apellido_materno}} {{$re->nombre}} </td>
                                             <td>{{$re->periodo->Nombre_Periodo }}</td>
                                             <td>{{$re->Carrera->Nombre_Carrera }}</td>
+                                            <td>{{$re->curso }}</td>
                                            
                                             <td> 
                                                 @foreach ($estudianteRequisitos as $r)
