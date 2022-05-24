@@ -54,9 +54,9 @@ class CarreraController extends Controller
     {
         
         $campos = [
-            'CODIGO_EJECUTAR' => ['required','string','max:5','min:5'],
+            
             'Nombre_Carrera' => ['required', 'string', 'max:255'],
-            'Codigo_Carrera' => ['required','unique:carreras,Codigo_Carrera','string','max:5','min:5'],
+            'Codigo_Carrera' => ['required','unique:carreras,Codigo_Carrera','string','min:5'],
             'Duracion_Carrera' => ['required','numeric','digits:1'],
             'Estado_Carrera' => ['required'],
             'facultad_id' => ['required']
@@ -78,7 +78,6 @@ class CarreraController extends Controller
         $this->validate($request,$campos,$mensaje);
 
         $todo = new Carrera;
-        $todo->CODIGO_EJECUTAR = $request->CODIGO_EJECUTAR;
         $todo->Nombre_Carrera = $request->Nombre_Carrera;
         $todo->Codigo_Carrera = $request->Codigo_Carrera;
         $todo->Duracion_Carrera = $request->Duracion_Carrera;
@@ -123,16 +122,16 @@ class CarreraController extends Controller
     public function update(Request $request, $id)
     {
         $campos = [
-            'CODIGO_EJECUTAR' => ['required','string','max:5','min:5'],
+            
             'Nombre_Carrera' => ['required', 'string', 'max:255'],
-            'Codigo_Carrera' => ['required','string','max:5','min:5'],
+            'Codigo_Carrera' => ['required','string','min:5'],
             'Duracion_Carrera' => ['required','numeric','digits:1'],
             'Estado_Carrera' => ['required'],
             'facultad_id' => ['required']
         ];
 
         $mensaje = [
-            'CODIGO_EJECUTAR.required'=>'El codigo es requerido',
+            
             'CODIGO_EJECUTAR.max'=>'El codigo debe tener cinco digitos',
             'CODIGO_EJECUTAR.min'=>'El codigo debe tener cinco digitos',
             'Nombre_Carrera.required'=>'LLene el nombre de forma correcta',
@@ -147,7 +146,6 @@ class CarreraController extends Controller
         $this->validate($request,$campos,$mensaje);
         
         $todo = Carrera::find($id);
-        $todo->CODIGO_EJECUTAR = $request->CODIGO_EJECUTAR;
         $todo->Nombre_Carrera = $request->Nombre_Carrera;
         $todo->Codigo_Carrera = $request->Codigo_Carrera;
         $todo->Duracion_Carrera = $request->Duracion_Carrera;

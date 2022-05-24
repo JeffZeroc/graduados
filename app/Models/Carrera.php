@@ -22,7 +22,6 @@ class Carrera extends Model
 
 
     protected $fillable = [
-        'CODIGO_EJECUTAR',
         'Nombre_Carrera',
         'Codigo_Carrera',
         'Duracion_Carrera',

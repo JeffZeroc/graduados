@@ -46,13 +46,14 @@
                 <ul id="navegacion">
                     <p id="navbarDropdown" > Usuario: {{ Auth::user()->name }} </p>
                     <div id="myDiv">
-                        <li @if(request()->is('user-create')) class='active' @endif  class="enlaces" ><a href="{{ route('user.create') }} "><i class="fas fa-regular fa-user"></i>Crear usuario</a></li>
-                        <li @if(request()->is('listaUsuarios')) class='active' @endif  class="enlaces"><a href="{{ route('inicio') }}"><i class="fas fa-regular fa-users"></i>Tipo de usuarios</a></li>
-                        <li @if(request()->is('requisitosUsuarios')) class='active' @endif class="enlaces"><a href="{{ route('requisitos') }}"><i class="fas fa-address-card"></i>Requisitos Estudiantiles</a></li>
-                        <li @if(request()->is('periodoAcademico')) class='active' @endif class="enlaces"><a href="{{ route('periodo') }}"><i class="fas fa-parking"></i>Periodo Académico</a></li>
-                        <li @if(request()->is('facultad')) class='active' @endif class="enlaces"><a href="{{ route('facultad') }}"><i class="fas fa-house-user"></i>Facultad</a></li>
-                        <li @if(request()->is('carrera')) class='active' @endif class="enlaces"><a href="{{ route('carrera') }}"><i class="fas fa-graduation-cap"></i>Carreras Universitarias</a></li>
-                        <li @if(request()->is('restablecerPassword')) class='active' @endif class="enlaces"><a href="{{ route('restablecercontraAdmin') }}"><i class="fas fa-solid fa-key"></i>Restablecer password</a></li>
+                        <li class='estado {{ request()->segment(1) == 'user-create' ? 'active' : '' }}'  ><a href="{{ route('user.create') }} "><i class="fas fa-regular fa-user"></i>Crear usuario</a></li>
+                        <li class='estado {{ request()->segment(1) == 'listaUsuarios' ? 'active' : '' }}' ><a href="{{ route('inicio') }}"><i class="fas fa-regular fa-users"></i>Tipo de usuarios</a></li>
+                        <li class='estado {{ request()->segment(1) == 'requisitosUsuarios' ? 'active' : '' }}' ><a href="{{ route('requisitos') }}"><i class="fas fa-address-card"></i>Requisitos Estudiantiles</a></li>
+                        <li class='estado {{ request()->segment(1) == 'periodoAcademico' ? 'active' : '' }}'><a href="{{ route('periodo') }}"><i class="fas fa-parking"></i>Periodo Académico</a></li>
+                        
+                        <li class='estado {{ request()->segment(1) == 'carrera' ? 'active' : '' }}' ><a href="{{ route('carrera') }}"><i class="fas fa-graduation-cap"></i>Carreras Universitarias</a></li>
+                        <li class='estado {{ request()->segment(1) == 'facultad' ? 'active' : '' }}' ><a href="{{ route('facultad') }}"><i class="fas fa-house-user"></i>Facultad</a></li>
+                        
                     </div>
                     
                     <li>

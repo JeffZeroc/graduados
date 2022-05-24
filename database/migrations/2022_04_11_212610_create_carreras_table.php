@@ -15,7 +15,6 @@ class CreateCarrerasTable extends Migration
     {
         Schema::create('carreras', function (Blueprint $table) {
             $table->id();
-            $table->string('CODIGO_EJECUTAR');
             $table->string('Nombre_Carrera');
             $table->string('Codigo_Carrera');
             $table->integer('Duracion_Carrera');

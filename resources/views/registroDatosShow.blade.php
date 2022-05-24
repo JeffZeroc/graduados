@@ -21,7 +21,7 @@
                     <div class='container-estudiante'>
                         <p>Estudiante</p>
                         <!-- ESTOS DATOS SE GUARDAN EN LA BD TABAL Estudiante -->
-                        <input type="text" name="Cedula_Estudiante" id="cedula" value="{{$estudiantes->cedula}}" placeholder="Ingresa la cedula" />
+                        <input type="text" name="cedula" id="cedula" value="{{$estudiantes->cedula}}" placeholder="Ingresa la cedula" />
                         <input type="text" value="{{$estudiantes->nombre}}" name="nombre" id="nombres" placeholder="Los nombres" />
                         <input type="text"  value="{{$estudiantes->apellido_paterno}} {{$estudiantes->apellido_materno}}" name="apellido_paterno" id="apellidos" placeholder="Los apellidos" />
                         <input type="date" style="display: inline;
@@ -43,10 +43,10 @@
                         <input type="text"  value="{{$estudiantes->discapacidad}}" name="discapacidad"  placeholder="Discapacidad" />
                         <input type="text"  value="{{$estudiantes->estado_civil}}" name="estado_civil"  placeholder="Estado Civil" />
                         <input type="text"  value="{{$estudiantes->pais}}" name="pais"  placeholder="País" />
-                        <input type="text" value="{{$estudiantes->telefono}}" name="telefono" id="telefono" placeholder="El número de telefono" />
+                        <input type="text" value="{{$estudiantes->celular}}" name="celular" id="telefono" placeholder="El número de telefono" />
                         <input type="text" value="{{$estudiantes->curso}}" name="curso" id="nombreCurso" placeholder="Nombre del curso" />
                         <input type="email" value="{{$estudiantes->correo_institucional}}" name="correo_institucional" id="emailIntitucional" placeholder="Email Institucional" />
-                        <input type="email" value="{{$estudiantes->correo_personal}}" name="correo_personal" id="emailPersonal" placeholder="Email Personal" />
+                        <input type="email" value="{{$estudiantes->Correo_personal}}" name="Correo_personal" id="emailPersonal" placeholder="Email Personal" />
                         
                     </div>
                         <div class="row">
@@ -80,8 +80,8 @@
                                     @foreach ($estudiantes->estudianteRequisito as $Requisito)
                                     <label for="ingles">Aprobación de {{$Requisito->Requisitos1 ->nombreRequisito}}:</label>
                                     <select name="requisito_id[]" id="ingles">
-                                        <option value="1" @if ($Requisito->valorRequisito == 1) selected="selected" @endif>Si</option>
-                                        <option value="0" @if ($Requisito->valorRequisito == 0) selected="selected" @endif>No</option>
+                                        <option value="SI" @if ($Requisito->valorRequisito == 'SI') selected="selected" @endif>SI</option>
+                                        <option value="NO" @if ($Requisito->valorRequisito == 'NO') selected="selected" @endif>NO</option>
                                         {{-- <option value="0">No</option> --}}
                                     </select>
                                     @endforeach
@@ -111,6 +111,9 @@
                                 </div>
                             </div>
                         </div>
+                        <a href="/ListaUsuariosEstudiantes" class="btn btn-secondary">
+                            Volver
+                        </a>
                         <button type="submit" class="btn-form btn-guardar">Guardar</button>
                 </form>
             </div>

@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Actualizar carrera</div>
+                <div class="card-header">Actualizar Carrera</div>
 
             @if (count($errors)>0)
             <div class="alert alert-danger">@foreach ($errors->all() as $error)
@@ -25,13 +25,7 @@
                     <form method="POST" action="{{ route('carrera_update', ['id' => $carreras->id]) }}" >
                     @csrf
                     @method('PATCH')
-                        <div class="row mb-3">
-                            <label for="name1" class="col-md-4 col-form-label text-md-end">Codigo Ejecutar</label>
-
-                            <div class="col-md-6">
-                                <input id="name1" placeholder="12345" type="text" class="form-control"  name="CODIGO_EJECUTAR" value="{{ $carreras->CODIGO_EJECUTAR }}" autofocus>
-                            </div>
-                        </div>
+                        
                         <div class="row mb-3">
                             <label for="name2" class="col-md-4 col-form-label text-md-end">Nombre de la Carrera</label>
 
@@ -71,9 +65,13 @@
                         </div>
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
+                                <a href="/carrera" class="btn btn-secondary">
+                                    Volver
+                                </a>
                                 <button type="submit" class="btn btn-primary">
                                     Actualizar
                                 </button>
+                                
                             </div>
                         </div>
                     </form>

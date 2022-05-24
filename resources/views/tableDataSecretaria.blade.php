@@ -72,14 +72,8 @@
                                         
                                         @foreach ($estudiantes as $re)
                                         <tr>
-                                            <td>{{$re->Cedula_Estudiante}}</td>
-                                            <td>{{$re->Nombre_Estudiante}} {{$re->Apellido_Estudiante}}</td>
-                                            {{-- <td>{{$estudiante->Apellido_Estudiante}}</td>                                
-                                            <td>{{$estudiante->Telefono_Estudiante}}</td>
-                                            <td>{{$estudiante->Nombre_CursoE}}</td>
-                                            <td>{{$estudiante->Correo_InstitucionalE}}</td>
-                                            <td>{{$estudiante->Correo_PersonalE}}</td>
-                                            <td>{{$estudiante->Estado_Estudiante}}</td> --}}
+                                            <td>{{$re->cedula}}</td>
+                                            <td>{{$re->apellido_paterno}}  {{$re->apellido_materno}} {{$re->nombre}} </td>
                                             <td>{{$re->periodo->Nombre_Periodo }}</td>
                                             <td>{{$re->Carrera->Nombre_Carrera }}</td>
                                            
@@ -88,7 +82,7 @@
                                                     @if ($r->estudiante_id == $re->id)
                                                           
                                                 
-                                                        @if ($r->valorRequisito == 1)
+                                                        @if ($r->valorRequisito == 'SI')
                                                         <p class="bien">{{$r->Requisitos1 ->nombreRequisito}}: Aprobado
                                                         @else
                                                         <p class="mal">{{$r->Requisitos1 ->nombreRequisito}}: Requerido 
@@ -98,7 +92,7 @@
                                                     
                                                 @endforeach
                                             </td>
-                                            <td>{{$re->Estado_Estudiante }}</td>
+                                            <td>{{$re->estado }}</td>
                                             
                                             <td>
                                                 <button type="button" class="btn btn-success" ><a href="{{ route('registrodatosUsuario-show', ['id' => $re->id]) }}" id="color-editar"><svg style="color: #fff"xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -127,36 +121,35 @@
                                                 <div class="modal-body">
                                                     
                                                    <ul>
-                                                       <li style="margin-right: 5px;"><span class="modal_lista">Cedula: </span> {{$re->Cedula_Estudiante}}</li>
-                                                       <li style="margin-right: 5px;"><span class="modal_lista">Nombres: </span> {{$re->Nombre_Estudiante}} {{$re->Apellido_Estudiante}}</li>
-                                                       
-                                                       <li style="margin-right: 5px;"><span class="modal_lista">Telefono: </span> {{$re->Telefono_Estudiante}}</li>
-                                                       <li style="margin-right: 5px;"><span class="modal_lista">Fecha Nacimiento: </span> {{$re->fechaNacimiento}}</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">Cedula: </span> {{$re->cedula}}</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">Nombres: </span> {{$re->apellido_paterno}} {{$re->apellido_materno}} {{$re->nombre}}</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">Telefono: </span> {{$re->telefono}}</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">Fecha Nacimiento: </span> {{$re->fecha_nacimiento}}</li>
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Edad: </span> {{$re->edad}}</li>
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Género: </span> {{$re->genero}}</li>
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Convencional: </span> {{$re->convencional}}</li>
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Etnia: </span> {{$re->etnia}}</li>
-                                                       <li style="margin-right: 5px;"><span class="modal_lista">Nacionalidad Etnia: </span> {{$re->nacionalidadEtnica}}</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">Nacionalidad Etnia: </span> {{$re->nacionalidad_etnica}}</li>
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Discapacidad: </span> {{$re->discapacidad}}</li>
-                                                       <li style="margin-right: 5px;"><span class="modal_lista">Estado Civil: </span> {{$re->estadoCivil}}</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">Estado Civil: </span> {{$re->estado_civil}}</li>
                                                        <li style="margin-right: 5px;"><span class="modal_lista">País: </span> {{$re->pais}}</li>
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Carrera: </span> {{$re->Carrera->Nombre_Carrera}}</li>
-                                                       <li style="margin-right: 5px;"><span class="modal_lista">Curso: </span> {{$re->Nombre_CursoE}}</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">Curso: </span> {{$re->curso}}</li>
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Facultad: </span> @foreach ($facultades as $facultade)
                                                            @if ($facultade->id == $re->Carrera->facultad_id)
                                                            {{$facultade->Nombre_Facultad}}
                                                            @endif
-                                                       @endforeach</li>{{-- sdfsdsdf --}}
-                                                       <li style="margin-right: 5px;"><span class="modal_lista">Correo Institucional: </span> {{$re->Correo_InstitucionalE}}</li>
-                                                       <li style="margin-right: 5px;"><span class="modal_lista">Correo Personal: </span> {{$re->Correo_PersonalE}}</li>
-                                                       <li style="margin-right: 5px;"><span class="modal_lista">Estado: </span> {{$re->Estado_Estudiante}}</li>
+                                                       @endforeach</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">Correo Institucional: </span> {{$re->correo_institucional}}</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">Correo Personal: </span> {{$re->Correo_personal}}</li>
+                                                       <li style="margin-right: 5px;"><span class="modal_lista">Estado: </span> {{$re->estado}}</li>
                                                        <li style="margin-right: 5px;"><span class="modal_lista">Periodo Academico: </span> {{$re->periodo->Nombre_Periodo}}</li>
                                                        @foreach ($estudianteRequisitos as $r)
                                                        
                                                         @if ($r->estudiante_id == $re->id)
                                                         <li style="margin-right: 5px;"><span class="modal_lista">{{$r->Requisitos1 ->nombreRequisito}}: </span>
                                                     
-                                                            @if ($r->valorRequisito == 1)
+                                                            @if ($r->valorRequisito == 'SI')
                                                             <span class="bien">Aprobado <br></span>
                                                             @else
                                                             <span class="mal">Rechazado <br></span>

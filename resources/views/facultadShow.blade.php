@@ -13,7 +13,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Actualizar facultad</div>
+                <div class="card-header">Actualizar Facultad</div>
 
                 @if (count($errors)>0)
                 <div class="alert alert-danger">@foreach ($errors->all() as $error)
@@ -37,6 +37,9 @@
                         </div>
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
+                                <a href="/facultad" class="btn btn-secondary">
+                                    Volver
+                                </a>
                                 <button type="submit" class="btn btn-primary">
                                     Guardar
                                 </button>

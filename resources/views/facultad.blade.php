@@ -13,7 +13,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Crear nueva facultad</div>
+                <div class="card-header">Crear Nueva Facultad</div>
 
                 @if (count($errors)>0)
                 <div class="alert alert-danger">@foreach ($errors->all() as $error)
@@ -52,7 +52,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card contenedor-facultad">
-                        <div class="card-header">Lista de las facultades</div>
+                        <div class="card-header">Lista de Facultades</div>
                         <div class='table-elemento__spacing' >
                             <table class="table">
                                 <thead>

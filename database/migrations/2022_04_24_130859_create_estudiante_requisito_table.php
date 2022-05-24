@@ -17,7 +17,7 @@ class CreateEstudianteRequisitoTable extends Migration
             $table->id();
             $table->unsignedBigInteger('estudiante_id');
             $table->unsignedBigInteger('requisito_id');
-            $table->boolean('valorRequisito')->nullable();
+            $table->String('valorRequisito')->nullable();
             $table->foreign('estudiante_id')->references('id')->on('estudiantes')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('requisito_id')->references('id')->on('requisitos')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

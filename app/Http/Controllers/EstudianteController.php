@@ -10,7 +10,7 @@ use App\Models\Facultad;
 use App\Models\Periodo;
 use App\Models\Requisitos;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class EstudianteController extends Controller
 {
@@ -61,13 +61,12 @@ class EstudianteController extends Controller
             'cedula' => ['required','string','max:10','min:10'],
             'nombre'=> ['required', 'string', 'max:255'],
             'apellido_paterno' => ['required', 'string', 'max:255'],
-            'apellido_materno' => ['required', 'string', 'max:255'],
             'fecha_nacimiento' => ['required'],
             'edad' => ['required', 'numeric'],
             'genero' => ['required', 'string', 'max:1'],
-            'convencional'=> ['required', 'string', 'max:10'],
+            'convencional'=> [ 'string', 'max:10'],
             'etnia' => ['required', 'string', 'max:255'],
-            'nacionalidad_etnica' => ['required', 'string', 'max:255'],
+            'nacionalidad_etnica' => ['string', 'max:255'],
             'discapacidad' => ['required', 'string', 'max:255'],
             'estado_civil' => ['required', 'string', 'max:255'],
             'pais' => ['required', 'string', 'max:255'],
@@ -193,23 +192,26 @@ class EstudianteController extends Controller
     public function update(Request $request, $id)
     {
         $campos = [
-            'cedula' => ['required','string','max:10','min:10'],
+            'cedula' => [
+                'required',
+                Rule::unique('estudiantes')->ignore($id),
+                'digits:10',
+            ],
             'nombre'=> ['required', 'string', 'max:255'],
             'apellido_paterno' => ['required', 'string', 'max:255'],
-            'apellido_materno' => ['required', 'string', 'max:255'],
             'fecha_nacimiento' => ['required'],
             'edad' => ['required', 'numeric'],
             'genero' => ['required', 'string', 'max:1'],
-            'convencional'=> ['required', 'string', 'max:10'],
+            'convencional'=> ['string', 'max:10'],
             'etnia' => ['required', 'string', 'max:255'],
-            'nacionalidad_etnica' => ['required', 'string', 'max:255'],
+            'nacionalidad_etnica' => ['string', 'max:255'],
             'discapacidad' => ['required', 'string', 'max:255'],
             'estado_civil' => ['required', 'string', 'max:255'],
             'pais' => ['required', 'string', 'max:255'],
-            'telefono' => ['required','string','max:10','min:10'],
+            'celular' => ['required','string','max:10','min:10'],
             'curso' => ['required', 'string', 'max:255'],
             'correo_institucional' => ['required', 'string', 'max:255'],
-            'correo_personal' => ['required', 'string', 'max:255'],
+            'Correo_personal' => ['required', 'string', 'max:255'],
             'estado' => ['required', 'string', 'max:255'],
             'periodo_id'  => ['required','numeric'],
             'carrera_id' => ['required','numeric'],
@@ -231,12 +233,12 @@ class EstudianteController extends Controller
             'nombre.required'=>'El nombre es requerido',
             'apellido_paterno.required'=>'El apellido paterno es requerido',
             'apellido_materno.required'=>'El apellido materno es requerido',
-            'telefono.required'=>'El teléfono es un campo requerido',
-            'telefono.max'=>'El teléfono debe tener 10 dígitos',
-            'telefono.min'=>'El teléfono debe tener 10 dígitos',
+            'celular.required'=>'El teléfono es un campo requerido',
+            'celular.max'=>'El teléfono debe tener 10 dígitos',
+            'celular.min'=>'El teléfono debe tener 10 dígitos',
             'curso.required'=>'El nombre del curso es un campo requerido',
             'correo_institucional.required'=>'El correo institucional es un campo requerido',
-            'oorreo_personal.required'=>'El correo personal es un campo requerido',
+            'Correo_personal.required'=>'El correo personal es un campo requerido',
             'carrera_id.required'=>'La carrera es un campo requerido',
             'estado.required'=>'El estado es un campo requerido',
             'periodo_id.required'=>'El periodo academico es un campo requerido',
@@ -253,10 +255,10 @@ class EstudianteController extends Controller
         $todo->apellido_paterno =$arrayNombre[0];
         $todo->apellido_materno =$arrayNombre[1];
         $todo->nombre = $request->nombre;
-        $todo->telefono = $request->telefono;
+        $todo->celular = $request->celular;
         $todo->curso = $request->curso;
         $todo->correo_institucional = $request->correo_institucional;
-        $todo->correo_personal = $request->correo_personal;
+        $todo->Correo_personal = $request->Correo_personal;
         $todo->carrera_id = $request->carrera_id;
         $todo->estado = $request->estado;
         $todo->periodo_id = $request->periodo_id;

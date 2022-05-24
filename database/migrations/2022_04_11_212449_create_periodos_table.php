@@ -18,6 +18,7 @@ class CreatePeriodosTable extends Migration
             $table->date('Inicio_Periodo');
             $table->date('Fin_Periodo');
             $table->string('Nombre_Periodo');
+            $table->string('codigo');
             $table->timestamps();
         });
     }

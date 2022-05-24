@@ -40,13 +40,15 @@ class PeriodoController extends Controller
         $campos = [
             'Inicio_Periodo' => ['required', 'date'],
             'Fin_Periodo' => ['required', 'date'],
-            'Nombre_Periodo' => ['required', 'string', 'max:255']
+            'Nombre_Periodo' => ['required', 'string', 'max:255'],
+            'codigo' => ['required', 'string', 'min:5'],            
         ];
 
         $mensaje = [
             'Inicio_Periodo.required'=>'Establesca una fecha para INICIO del periodo académico',
             'Fin_Periodo.required'=>'Establesca una fecha para FIN del periodo',
-            'Nombre_Periodo.required'=>'El nombre es un campo requerido'
+            'Nombre_Periodo.required'=>'El nombre es un campo requerido',
+            'codigo.required'=>'El código es un campo requerido'
         ];
 
         $this->validate($request,$campos,$mensaje);
@@ -56,6 +58,7 @@ class PeriodoController extends Controller
         $todo->Inicio_Periodo = $request->Inicio_Periodo;
         $todo->Fin_Periodo = $request->Fin_Periodo;
         $todo->Nombre_Periodo = $request->Nombre_Periodo;
+        $todo->codigo = $request->codigo;
         $todo->save();
     
         return redirect()->route('periodo')->with('success', 'Se ha guardado correctamente');
@@ -97,13 +100,15 @@ class PeriodoController extends Controller
         $campos = [
             'Inicio_Periodo' => ['required', 'date'],
             'Fin_Periodo' => ['required', 'date'],
-            'Nombre_Periodo' => ['required', 'string', 'max:255']
+            'Nombre_Periodo' => ['required', 'string', 'max:255'],
+            'codigo' => ['required', 'string', 'max:5']
         ];
 
         $mensaje = [
             'Inicio_Periodo.required'=>'Establesca una fecha para INICIO del periodo académico',
             'Fin_Periodo.required'=>'Establesca una fecha para FIN del periodo',
-            'Nombre_Periodo.required'=>'El nombre es un campo requerido'
+            'Nombre_Periodo.required'=>'El nombre es un campo requerido',
+            'codigo.required'=>'El código es un campo requerido',
         ];
 
         $this->validate($request,$campos,$mensaje);
@@ -112,6 +117,7 @@ class PeriodoController extends Controller
         $todo->Inicio_Periodo = $request->Inicio_Periodo;
         $todo->Fin_Periodo = $request->Fin_Periodo;
         $todo->Nombre_Periodo = $request->Nombre_Periodo;
+        $todo->codigo = $request->codigo;
         $todo->save();
 
         return redirect()->route('periodo')->with('success', 'Periodo académico fue modificado con exito');

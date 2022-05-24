@@ -39,7 +39,8 @@ class requisitoController extends Controller
     {
         
         $campos = [
-            'nombreRequisito' => ['required', 'string', 'max:255']
+            'nombreRequisito' => ['required', 'string', 'max:255'],
+            'estado' => ['required']
         ];
 
         $mensaje = [
@@ -49,6 +50,7 @@ class requisitoController extends Controller
         $this->validate($request,$campos,$mensaje);
         $todo = new Requisitos;
         $todo->nombreRequisito = $request->nombreRequisito;
+        $todo->estado = $request->estado;
         $todo->save();
     
         return redirect()->route('requisitos')->with('success', 'Se ha guardado correctamente');
@@ -87,7 +89,8 @@ class requisitoController extends Controller
     public function update(Request $request, $id)
     {
         $campos = [
-            'nombreRequisito' => ['required', 'string', 'max:255']
+            'nombreRequisito' => ['required', 'string', 'max:255'],
+            'estado' => ['required']
         ];
 
         $mensaje = [
@@ -97,6 +100,7 @@ class requisitoController extends Controller
         $this->validate($request,$campos,$mensaje);
         $requisito = Requisitos::find($id);
         $requisito->nombreRequisito = $request->nombreRequisito;
+        $requisito->estado = $request->estado;
         $requisito->save();
        
        /*  return view('listaUsuarios',$datos);   */
