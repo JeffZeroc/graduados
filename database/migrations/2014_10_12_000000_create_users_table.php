@@ -32,6 +32,7 @@ class CreateUsersTable extends Migration
                 "rol" => "administrador",
                 "email" => "root@gmail.com",
                 "password" => Hash::make('123456789'),
+                "stado" => "Habilitado",
             ]);
     }
 

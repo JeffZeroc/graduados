@@ -2,7 +2,7 @@
 
 
 use App\Http\Controllers\Auth\RegisterController;
-
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SecretariaController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -124,11 +124,11 @@ Route::group(['middleware'=>'auth'], function(){
 
 route::post('crearUsuario',[RegisterController::class,'register']);
 Route::get('/', function () {
-    return Redirect('login');
+    return view('auth.login');
 });
 Route::get('alumnos/import',[SecretariaController::class,'importForm'])->name('alumnos.importForm');
 Route::post('alumnos/import',[SecretariaController::class,'import'])->name('alumnos.import');
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
