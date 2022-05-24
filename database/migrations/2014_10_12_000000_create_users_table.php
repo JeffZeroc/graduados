@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration
         DB::table("users")
             ->insert([
                 "name" => "root",
-                "rol" => "administrador",
+                "rol" => "Administrador",
                 "email" => "root@gmail.com",
                 "password" => Hash::make('123456789'),
                 "estado" => "Habilitado",
