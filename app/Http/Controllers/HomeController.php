@@ -28,6 +28,9 @@ class HomeController extends Controller
         }elseif( $tipo == 'Administrador' && $estado == 'Habilitado' ){
                 return Redirect('principal')->with('mesaje','Administrador');
         }
+        else{
+            return Redirect('/');
+        }
 
         
     }
