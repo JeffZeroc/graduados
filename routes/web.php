@@ -124,11 +124,11 @@ Route::group(['middleware'=>'auth'], function(){
 
 route::post('crearUsuario',[RegisterController::class,'register']);
 Route::get('/', function () {
-    return view('auth.login');
+    return Redirect('login');
 });
 Route::get('alumnos/import',[SecretariaController::class,'importForm'])->name('alumnos.importForm');
 Route::post('alumnos/import',[SecretariaController::class,'import'])->name('alumnos.import');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
