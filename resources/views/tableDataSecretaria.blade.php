@@ -149,7 +149,7 @@
                                                         {{ $re->apellido_materno }}
                                                         {{ $re->nombre }}</li>
                                                     <li style="margin-right: 5px;"><span class="modal_lista">Telefono:
-                                                        </span> {{ $re->telefono }}</li>
+                                                        </span> {{ $re->celular }}</li>
                                                     <li style="margin-right: 5px;"><span class="modal_lista">Fecha
                                                             Nacimiento: </span> {{ $re->fecha_nacimiento }}</li>
                                                     <li style="margin-right: 5px;"><span class="modal_lista">Edad:
