@@ -38,6 +38,7 @@ class EstudiantesImport implements ToModel, WithHeadingRow, WithBatchInserts, Wi
         $estudiante->curso = $row['curso'];
         if ($estudiante->curso == '9 A' || $estudiante->curso == '9 B' || $estudiante->curso == '8 A' || $estudiante->curso == '8 B') {
             $estudiante->cedula = $row['cedula'];
+            
             $estudiante->fecha_nacimiento = $row['fecha_nacimiento'];
             if ($estudiante->fecha_nacimiento == '') {
                 $estudiante->fecha_nacimiento = null;
@@ -52,7 +53,7 @@ class EstudiantesImport implements ToModel, WithHeadingRow, WithBatchInserts, Wi
             }
             $estudiante->convencional = $row['convencional'];
             if ($estudiante->convencional == '' || strlen($estudiante->convencional) < 9) {
-                $estudiante->convencional = 'No Especificad@';
+                $estudiante->convencional = 'S/N';
             }
             $estudiante->etnia = $row['etnia'];
             if ($estudiante->etnia == '') {
@@ -82,7 +83,7 @@ class EstudiantesImport implements ToModel, WithHeadingRow, WithBatchInserts, Wi
             $estudiante->nombre = $arrayNombre[2];
             $estudiante->celular = $row['celular'];
             if ($estudiante->celular == '' || strlen($estudiante->celular) < 10) {
-                $estudiante->celular = 'No Especificad@';
+                $estudiante->celular = 'S/N';
             }
 
             $estudiante->correo_institucional = $row['correo_institucional'];
