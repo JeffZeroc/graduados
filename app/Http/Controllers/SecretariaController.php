@@ -94,13 +94,12 @@ class SecretariaController extends Controller
     public function import(Request $request)
     {
         $file = $request->file('import_file');
-        Excel::import(new EstudiantesImport, $file);
+               
+        try {
+            Excel::import(new EstudiantesImport, $file);
             return redirect()->route('tableDataSecretaria2')->with('success', 'Productos importados exitosamente');
-        // try {
-        //     Excel::import(new EstudiantesImport, $file);
-        //     return redirect()->route('tableDataSecretaria2')->with('success', 'Productos importados exitosamente');
-        // } catch (\Throwable $th) {
-        //     return redirect()->route('tableDataSecretaria2')->with('error', 'Ocurrio un error en la importación. Asegurese que el archivo poseea todos los campos necesarios y la base de datos tenga los datos necesarios');
-        // }
+        } catch (\Throwable $th) {
+            return redirect()->route('tableDataSecretaria2')->with('error', 'Ocurrio un error en la importación. Asegurese que el archivo poseea todos los campos necesarios y la base de datos tenga los datos necesarios');
+        }
     }
 }
